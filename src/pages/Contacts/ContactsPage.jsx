@@ -67,7 +67,7 @@ const ContactsPage = () => {
 
               <div className="social-icons">
                 <a
-                  href="#"
+                  href="/"
                   className="social-icon-btn"
                   aria-label="WhatsApp"
                 >
@@ -75,7 +75,7 @@ const ContactsPage = () => {
                 </a>
 
                 <a
-                  href="#"
+                  href="/"
                   className="social-icon-btn"
                   aria-label="Telegram"
                 >
@@ -83,7 +83,7 @@ const ContactsPage = () => {
                 </a>
 
                 <a
-                  href="#"
+                  href="/"
                   className="social-icon-btn"
                   aria-label="Instagram"
                 >
@@ -91,7 +91,7 @@ const ContactsPage = () => {
                 </a>
 
                 <a
-                  href="#"
+                  href="/"
                   className="social-icon-btn"
                   aria-label="TikTok"
                 >
