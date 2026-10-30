@@ -1,0 +1,263 @@
+/* ===== Стили для страницы Price ===== */
+
+/* Подчёркивание активного пункта меню "Прайс" */
+.nav-link.active {
+  color: #E22119;
+  font-weight: 600;
+  position: relative;
+}
+
+.nav-link.active::after {
+  content: '';
+  position: absolute;
+  bottom: -6px;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background-color: #E22119;
+  border-radius: 2px;
+}
+
+/* Отступы страницы */
+.price-page {
+  padding-top: 60px;
+  padding-bottom: 100px;
+}
+
+/* Сетка из двух колонок */
+.price-wrapper {
+  display: grid;
+  grid-template-columns: 1fr 480px;
+  gap: 30px;
+  align-items: stretch;
+  max-width: 1140px;
+  margin: 0 auto;
+}
+
+/* ===== Левая карточка с описанием ===== */
+.price-info-card {
+  background-color: #F8F9FA;
+  border-radius: 24px;
+  padding: 40px 44px;
+  display: flex;
+  flex-direction: column;
+}
+
+.price-title {
+  font-size: 38px;
+  font-weight: 700;
+  color: #000000;
+  margin-bottom: 24px;
+  text-align: center;
+}
+
+.price-description {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  font-size: 13px;
+  line-height: 1.6;
+  color: #777777;
+}
+
+/* ===== Правая яркая карточка со стоимостью ===== */
+.price-card {
+  background: linear-gradient(135deg, #E22119 0%, #C33500 100%);
+  border-radius: 24px;
+  padding: 40px 36px;
+  color: #FFFFFF;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.price-card-title {
+  font-size: 24px;
+  font-weight: 700;
+  margin-bottom: 24px;
+}
+
+/* Процентная ставка */
+.price-value-box {
+  display: flex;
+  align-items: baseline;
+  gap: 12px;
+  margin-bottom: 30px;
+}
+
+.price-number {
+  font-size: 54px;
+  font-weight: 800;
+  line-height: 1;
+}
+
+.price-subtext {
+  font-size: 14px;
+  opacity: 0.9;
+}
+
+/* Список преимуществ с галочками */
+.price-features {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 36px 0;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.price-features li {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.feature-check {
+  width: 22px;
+  height: 22px;
+  background-color: #FFFFFF;
+  color: #E22119;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 11px;
+  flex-shrink: 0;
+}
+
+/* Белая кнопка внутри карточки */
+.btn-price-action {
+  display: block;
+  width: 100%;
+  padding: 16px;
+  background-color: #FFFFFF;
+  color: #111111;
+  font-size: 14px;
+  font-weight: 700;
+  text-align: center;
+  text-decoration: none;
+  border-radius: 12px;
+  transition: transform 0.2s ease, opacity 0.2s ease;
+}
+
+.btn-price-action:hover {
+  opacity: 0.95;
+  transform: translateY(-2px);
+}
+
+
+
+/* ==========================================
+   Адаптивная верстка страницы Price
+   ========================================== */
+
+/* --- Планшеты (до 1024px) --- */
+@media (max-width: 1024px) {
+  .price-page {
+    padding-top: 40px;
+    padding-bottom: 80px;
+  }
+
+  .price-wrapper {
+    grid-template-columns: 1fr 400px;
+    gap: 20px;
+    padding: 0 20px;
+  }
+
+  .price-info-card {
+    padding: 32px 30px;
+  }
+
+  .price-card {
+    padding: 32px 28px;
+  }
+
+  .price-title {
+    font-size: 30px;
+  }
+
+  .price-number {
+    font-size: 46px;
+  }
+}
+
+/* --- Планшеты портретно и мобильные (до 768px) --- */
+@media (max-width: 768px) {
+  .price-page {
+    padding-top: 30px;
+    padding-bottom: 60px;
+  }
+
+  /* Переводим блок из 2 колонок в 1 колонку */
+  .price-wrapper {
+    grid-template-columns: 1fr;
+    gap: 24px;
+    padding: 0 16px;
+  }
+
+  /* Красная карточка с ценой идет первой для акцента на мобильных (опционально) */
+  .price-card {
+    order: -1;
+  }
+
+  .price-info-card {
+    padding: 28px 24px;
+    border-radius: 20px;
+  }
+
+  .price-card {
+    border-radius: 20px;
+  }
+
+  .price-title {
+    font-size: 26px;
+    text-align: left; /* Для лучшей читаемости на узких экранах */
+    margin-bottom: 16px;
+  }
+}
+
+/* --- Маленькие мобильные экраны (до 480px) --- */
+@media (max-width: 480px) {
+  .price-wrapper {
+    padding: 0 12px;
+  }
+
+  .price-info-card {
+    padding: 24px 18px;
+    border-radius: 16px;
+  }
+
+  .price-card {
+    padding: 24px 18px;
+    border-radius: 16px;
+  }
+
+  .price-card-title {
+    font-size: 20px;
+    margin-bottom: 18px;
+  }
+
+  .price-number {
+    font-size: 38px;
+  }
+
+  .price-subtext {
+    font-size: 13px;
+  }
+
+  .price-features {
+    margin-bottom: 24px;
+    gap: 12px;
+  }
+
+  .price-features li {
+    font-size: 13px;
+  }
+
+  .btn-price-action {
+    padding: 14px;
+    font-size: 13px;
+  }
+}

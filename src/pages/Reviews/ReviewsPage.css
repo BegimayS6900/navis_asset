@@ -1,0 +1,112 @@
+@import url('https://googleapis.com');
+
+.reviews-container {
+  font-family: 'Inter', sans-serif;
+  max-width: 1140px;
+  margin: 0 auto;
+  padding: 60px 20px;
+  background-color: #ffffff;
+}
+
+.reviews-title {
+  font-size: 42px;
+  font-weight: 700;
+  text-align: center;
+  color: #000000;
+  margin-bottom: 48px;
+  letter-spacing: -0.5px;
+}
+
+/* Сетка 4x2 как на скриншоте figma */
+.reviews-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+}
+
+/* Карточка отзыва */
+.review-card {
+  background: #ffffff;
+  border: 1px solid #eef2f6;
+  border-radius: 8px;
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-height: 290px;
+  box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.02);
+  box-sizing: border-box;
+}
+
+/* Контейнер для звезд */
+.stars-row {
+  display: flex;
+  gap: 3px;
+  margin-bottom: 16px;
+}
+
+.star-icon {
+  width: 18px;
+  height: 18px;
+  fill: #ffca28;
+  color: #ffca28;
+}
+
+/* Текст отзыва */
+.review-text {
+  font-size: 14px;
+  line-height: 1.5;
+  color: #2d3748;
+  margin: 0 0 24px 0;
+  font-weight: 400;
+}
+
+/* Блок автора внизу */
+.author-block {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  margin-top: auto;
+}
+
+/* Иконка пользователя (красный силуэт) */
+.user-avatar-icon {
+  width: 14px;
+  height: 16px;
+  color: #e53935;
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+.author-info {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.author-name {
+  font-size: 14px;
+  font-weight: 500;
+  color: #1a202c;
+}
+
+.review-date {
+  font-size: 11px;
+  color: #a0aec0;
+}
+
+/* Адаптивность для планшетов и мобильных устройств */
+@media (max-width: 1024px) {
+  .reviews-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .reviews-title {
+    font-size: 32px;
+  }
+}
+
+@media (max-width: 600px) {
+  .reviews-grid {
+    grid-template-columns: 1fr;
+  }
+}

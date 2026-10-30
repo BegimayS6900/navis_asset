@@ -1,38 +1,121 @@
-.App {
-  text-align: center;
-}
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
+/* ===== App ===== */
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
+#root {
   min-height: 100vh;
   display: flex;
   flex-direction: column;
+}
+
+.App {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Основная область приложения */
+
+main {
+  flex: 1;
+  min-height: 400px;
+  background: #fcfcfc;
+}
+
+/* ===== Общие секции ===== */
+
+.section {
+  padding-top: var(--section-gap, 120px);
+}
+
+.section-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.section-title {
+  margin-bottom: 40px;
+  font-size: 50px;
+  font-weight: 600;
+  text-align: center;
+  color: #000;
+}
+
+/* ===== Общие кнопки ===== */
+
+.btn-primary,
+.btn-secondary,
+.btn-news-more,
+.cta-button {
+  display: inline-flex;
   align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  font-weight: 600;
+  text-decoration: none;
+  border-radius: 8px;
+  transition:
+    background 0.2s ease,
+    border-color 0.2s ease,
+    transform 0.2s ease;
 }
 
-.App-link {
-  color: #61dafb;
+.btn-primary {
+  padding: 15px 33px;
+  font-size: 16px;
+  color: #fff;
+  background: var(--red, #D4151C);
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+.btn-primary:hover {
+  background: var(--red-dark, #C02E16);
+}
+
+.btn-secondary {
+  gap: 10px;
+  padding: 14px 24px;
+  font-size: 16px;
+  color: #1a1a1a;
+  background: #fff;
+  border: 1px solid #E5E7EB;
+}
+
+.btn-secondary:hover {
+  background: #F9FAFB;
+  border-color: #D1D5DB;
+}
+
+/* ===== Изображения и ссылки ===== */
+
+img {
+  max-width: 100%;
+}
+
+a {
+  color: inherit;
+}
+
+/* ===== Адаптивность ===== */
+
+@media (max-width: 1200px) {
+  .section-title {
+    font-size: 42px;
   }
-  to {
-    transform: rotate(360deg);
+}
+
+@media (max-width: 992px) {
+  .section-title {
+    font-size: 36px;
+    margin-bottom: 30px;
+  }
+}
+
+@media (max-width: 576px) {
+  .section-title {
+    font-size: 28px;
+    margin-bottom: 24px;
+  }
+
+  .section {
+    padding-top: 60px;
   }
 }

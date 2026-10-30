@@ -1,0 +1,308 @@
+/* ===== Header ===== */
+
+.header {
+  border-bottom: 1px solid #D8D8D8;
+  background: #fff;
+  position: relative;
+  z-index: 1000;
+}
+
+.header-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 80px;
+  position: relative;
+}
+
+/* ===== Чекбоксы ===== */
+
+.burger-checkbox,
+.lang-checkbox {
+  display: none;
+}
+
+/* ===== Логотип ===== */
+
+.logo,
+.footer-logo {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  flex-shrink: 0;
+}
+
+.logo-img {
+  height: 60px;
+  width: auto;
+  display: block;
+  object-fit: contain;
+}
+
+/* ===== Навигация ===== */
+
+.nav-list {
+  display: flex;
+  align-items: center;
+  gap: 40px;
+  list-style: none;
+}
+
+.nav-link {
+  text-decoration: none;
+  font-size: 16px;
+  color: #1a1a1a;
+  transition: color 0.2s ease;
+}
+
+.nav-link:hover {
+  color: #D4151C;
+}
+
+/* ===== Правая часть Header ===== */
+
+.header-actions {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-shrink: 0;
+}
+
+/* ===== Переключатель языка ===== */
+
+.lang-select {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 13px 10px;
+  background: #F5F7FA;
+  border-radius: 8px;
+  cursor: pointer;
+  user-select: none;
+}
+
+.flag-img {
+  width: 32px;
+  height: auto;
+  display: block;
+}
+
+.lang-text {
+  font-size: 16px;
+  font-weight: 500;
+}
+
+.arrow-icon {
+  font-size: 10px;
+  color: #6F6F6F;
+}
+
+/* По умолчанию русский */
+
+.lang-select .flag-en,
+.lang-select .lang-text-en {
+  display: none;
+}
+
+/* Переключение на английский */
+
+#lang-toggle:checked ~ .header-container .lang-select .flag-ru,
+#lang-toggle:checked ~ .header-container .lang-select .lang-text-ru {
+  display: none;
+}
+
+#lang-toggle:checked ~ .header-container .lang-select .flag-en,
+#lang-toggle:checked ~ .header-container .lang-select .lang-text-en {
+  display: block;
+}
+
+/* ===== Кнопка «Начать» ===== */
+
+.btn-start {
+  display: inline-block;
+  padding: 15px 30px;
+  font: 600 16px 'Inter', sans-serif;
+  color: #fff;
+  background: #000;
+  border: 0;
+  border-radius: 8px;
+  cursor: pointer;
+  text-decoration: none;
+  text-align: center;
+  white-space: nowrap;
+  transition: background 0.2s ease;
+}
+
+.btn-start:hover {
+  background: #222;
+}
+
+/* ===== Бургер-меню ===== */
+
+.burger-menu {
+  display: none;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 5px;
+}
+
+.burger-menu span {
+  display: block;
+  width: 100%;
+  height: 3px;
+  background-color: #1a1a1a;
+  border-radius: 2px;
+  transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+/* ===== Ноутбуки и планшеты ===== */
+
+@media (max-width: 1160px) {
+  .header-container {
+    gap: 20px;
+  }
+
+  .burger-menu {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    width: 30px;
+    height: 24px;
+    z-index: 1001;
+    flex-shrink: 0;
+  }
+
+  .nav {
+    position: fixed;
+    top: 80px;
+    left: -100%;
+    width: 100%;
+    height: calc(100vh - 80px);
+    overflow-y: auto;
+    background: #fff;
+    transition: left 0.3s ease;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.05);
+    padding: 40px;
+    z-index: 1000;
+  }
+
+  #burger-toggle:checked ~ .nav {
+    left: 0;
+  }
+
+  .nav-list {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 20px;
+  }
+
+  .nav-link {
+    font-size: 20px;
+  }
+
+  /* Анимация бургера */
+
+  #burger-toggle:checked ~ .burger-menu span:nth-child(1) {
+    transform: translateY(6px) rotate(45deg);
+  }
+
+  #burger-toggle:checked ~ .burger-menu span:nth-child(2) {
+    opacity: 0;
+  }
+
+  #burger-toggle:checked ~ .burger-menu span:nth-child(3) {
+    transform: translateY(-6px) rotate(-45deg);
+  }
+}
+
+/* ===== Планшеты ===== */
+
+@media (max-width: 992px) {
+  .header-container {
+    gap: 16px;
+  }
+
+  .logo-img {
+    height: 50px;
+  }
+
+  .nav {
+    padding: 30px;
+  }
+}
+
+/* ===== Телефоны ===== */
+
+@media (max-width: 576px) {
+  .header-container {
+    height: 70px;
+    gap: 10px;
+  }
+
+  .logo-img {
+    height: 42px;
+  }
+
+  .header-actions {
+    gap: 6px;
+  }
+
+  .lang-select {
+    gap: 6px;
+    padding: 8px;
+  }
+
+  .flag-img {
+    width: 24px;
+  }
+
+  .lang-text,
+  .btn-start {
+    font-size: 14px;
+  }
+
+  .btn-start {
+    padding: 10px 12px;
+  }
+
+  .arrow-icon {
+    font-size: 9px;
+  }
+
+  .nav {
+    top: 70px;
+    height: calc(100vh - 70px);
+    padding: 25px 20px;
+  }
+}
+
+/* ===== Очень узкие телефоны ===== */
+
+@media (max-width: 360px) {
+  .header-container {
+    gap: 6px;
+  }
+
+  .logo-img {
+    height: 34px;
+  }
+
+  .lang-select {
+    gap: 4px;
+    padding: 7px 5px;
+  }
+
+  .flag-img {
+    width: 20px;
+  }
+
+  .lang-text {
+    font-size: 12px;
+  }
+
+  .btn-start {
+    padding: 9px 8px;
+    font-size: 12px;
+  }
+}
