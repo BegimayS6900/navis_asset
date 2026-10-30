@@ -52,37 +52,37 @@ const Footer = () => {
           <h4 className="footer-title">Мы в соцсетях</h4>
 
           <div className="social-links">
-            <a
-              href="#"
+            <button
+              href="/"
               className="social-icon-link"
               aria-label="WhatsApp"
             >
               <img src="/image/Combined-Shape.png" alt="" />
-            </a>
+            </button>
 
-            <a
-              href="#"
+            <button
+              href="/"
               className="social-icon-link"
               aria-label="Telegram"
             >
               <img src="/image/path13.png" alt="" />
-            </a>
+            </button>
 
-            <a
-              href="#"
+            <button
+              href="/"
               className="social-icon-link"
               aria-label="Instagram"
             >
               <img src="/image/220900.png" alt="" />
-            </a>
+            </button>
 
-            <a
-              href="#"
+            <button
+              href="/"
               className="social-icon-link"
               aria-label="TikTok"
             >
               <img src="/image/icon-tt.png" alt="" />
-            </a>
+            </button>
           </div>
         </div>
       </div>
@@ -93,7 +93,7 @@ const Footer = () => {
 
           <p className="credits">
             Made with <span className="heart">♥</span> by{" "}
-            <a href="#" className="dev-link">
+            <a href="/" className="dev-link">
               NavisDevs
             </a>
           </p>
