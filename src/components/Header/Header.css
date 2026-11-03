@@ -1,3 +1,4 @@
+
 /* ===== Header ===== */
 
 .header {
@@ -92,11 +93,6 @@
   font-weight: 500;
 }
 
-.arrow-icon {
-  font-size: 10px;
-  color: #6F6F6F;
-}
-
 /* По умолчанию русский */
 
 .lang-select .flag-en,
@@ -106,14 +102,26 @@
 
 /* Переключение на английский */
 
-#lang-toggle:checked ~ .header-container .lang-select .flag-ru,
-#lang-toggle:checked ~ .header-container .lang-select .lang-text-ru {
+#lang-toggle:checked ~ .header-actions .flag-ru,
+#lang-toggle:checked ~ .header-actions .lang-text-ru {
   display: none;
 }
 
-#lang-toggle:checked ~ .header-container .lang-select .flag-en,
-#lang-toggle:checked ~ .header-container .lang-select .lang-text-en {
+#lang-toggle:checked ~ .header-actions .flag-en,
+#lang-toggle:checked ~ .header-actions .lang-text-en {
   display: block;
+}
+
+/* Стрелка */
+
+.arrow-icon {
+  font-size: 10px;
+  color: #6F6F6F;
+  transition: transform 0.3s ease;
+}
+
+#lang-toggle:checked ~ .header-actions .arrow-icon {
+  transform: rotate(180deg);
 }
 
 /* ===== Кнопка «Начать» ===== */

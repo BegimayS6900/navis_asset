@@ -1,0 +1,272 @@
+
+.services-page {
+  width: 100%;
+  color: #252525;
+  background: #fff;
+}
+
+/* HERO */
+
+.services-hero {
+  padding: 35px 0 100px;
+  background: #f7f7f7;
+}
+
+.services-breadcrumb {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 14px;
+  color: #888;
+}
+
+.services-breadcrumb a {
+  color: #252525;
+  text-decoration: none;
+}
+
+.services-breadcrumb a:hover {
+  color: #ed593e;
+}
+
+.services-hero-content {
+  max-width: 750px;
+  margin-top: 100px;
+}
+
+.services-label {
+  display: inline-block;
+  color: #ed593e;
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 2px;
+}
+
+.services-hero-content h1 {
+  margin: 20px 0;
+  font-size: 64px;
+  font-weight: 700;
+  line-height: 1.1;
+}
+
+.services-hero-content h1 span {
+  color: #ed593e;
+}
+
+.services-hero-content p {
+  max-width: 600px;
+  margin-bottom: 35px;
+  color: #777;
+  font-size: 18px;
+  line-height: 1.7;
+}
+
+.services-main-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 55px;
+  padding: 0 30px;
+  background: #ed593e;
+  color: #fff;
+  text-decoration: none;
+  font-size: 15px;
+  font-weight: 600;
+  transition: 0.3s;
+}
+
+.services-main-btn:hover {
+  background: #c9432c;
+  color: #fff;
+}
+
+/* SERVICES */
+
+.services-section {
+  padding: 100px 0;
+}
+
+.services-section-heading {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 30px;
+  margin-bottom: 50px;
+}
+
+.services-section-heading h2 {
+  max-width: 550px;
+  margin-top: 18px;
+  font-size: 42px;
+  line-height: 1.2;
+}
+
+.services-section-heading p {
+  max-width: 350px;
+  color: #777;
+  font-size: 15px;
+  line-height: 1.7;
+}
+
+.services-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+
+.service-card {
+  display: flex;
+  flex-direction: column;
+  min-height: 310px;
+  padding: 30px;
+  border: 1px solid #e9e9e9;
+  background: #fff;
+  transition: 0.3s;
+}
+
+.service-card:hover {
+  border-color: #ed593e;
+  transform: translateY(-5px);
+  box-shadow: 0 12px 35px rgba(0, 0, 0, 0.05);
+}
+
+.service-card-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 35px;
+}
+
+.service-number {
+  color: #ed593e;
+  font-size: 16px;
+  font-weight: 700;
+}
+
+.service-arrow {
+  color: #ed593e;
+  font-size: 25px;
+}
+
+.service-card h3 {
+  margin-bottom: 15px;
+  font-size: 22px;
+  line-height: 1.3;
+}
+
+.service-card p {
+  margin-bottom: 25px;
+  color: #777;
+  font-size: 14px;
+  line-height: 1.7;
+}
+
+.service-link {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: auto;
+  color: #ed593e;
+  font-size: 14px;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.service-link span {
+  transition: 0.3s;
+}
+
+.service-link:hover span {
+  transform: translateX(5px);
+}
+
+/* CTA */
+
+.services-cta {
+  padding: 75px 0;
+  background: #252525;
+  color: #fff;
+}
+
+.services-cta-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 30px;
+}
+
+.services-cta h2 {
+  margin: 15px 0;
+  font-size: 36px;
+}
+
+.services-cta p {
+  max-width: 550px;
+  color: #c5c5c5;
+  line-height: 1.7;
+}
+
+/* RESPONSIVE */
+
+@media (max-width: 992px) {
+  .services-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .services-hero-content h1 {
+    font-size: 52px;
+  }
+
+  .services-section-heading h2 {
+    font-size: 34px;
+  }
+}
+
+@media (max-width: 600px) {
+  .services-hero {
+    padding-bottom: 65px;
+  }
+
+  .services-hero-content {
+    margin-top: 65px;
+  }
+
+  .services-hero-content h1 {
+    font-size: 40px;
+  }
+
+  .services-hero-content p {
+    font-size: 15px;
+  }
+
+  .services-section {
+    padding: 65px 0;
+  }
+
+  .services-section-heading {
+    flex-direction: column;
+    align-items: flex-start;
+    margin-bottom: 30px;
+  }
+
+  .services-section-heading h2 {
+    font-size: 30px;
+  }
+
+  .services-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .service-card {
+    min-height: 280px;
+  }
+
+  .services-cta-content {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .services-cta h2 {
+    font-size: 28px;
+  }
+}

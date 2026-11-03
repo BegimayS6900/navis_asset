@@ -1,5 +1,4 @@
-
-import React from 'react';
+import React, { useState } from 'react';
 import './HomePage.css';
 
 // Partners
@@ -99,6 +98,8 @@ const news = [
 ];
 
 function HomePage() {
+  const [activeQuestion, setActiveQuestion] = useState(0);
+
   return (
     <main className="home-page">
       {/* HERO */}
@@ -208,12 +209,14 @@ function HomePage() {
                 key={service.title}
               >
                 <div className="service-icon-wrap">
-                  <img
-                    src={service.image}
-                    alt=""
-                    className="service-icon"
-                    loading="lazy"
-                  />
+                  {service.image && (
+                    <img
+                      src={service.image}
+                      alt=""
+                      className="service-icon"
+                      loading="lazy"
+                    />
+                  )}
                 </div>
 
                 <h3 className="service-card-title">{service.title}</h3>
@@ -237,9 +240,17 @@ function HomePage() {
               <details
                 className="faq-item"
                 key={item.question}
-                open={index === 0}
+                open={activeQuestion === index}
               >
-                <summary className="faq-question">
+                <summary
+                  className="faq-question"
+                  onClick={(e) => {
+                    e.preventDefault();
+                    setActiveQuestion((prev) =>
+                      prev === index ? -1 : index
+                    );
+                  }}
+                >
                   <span>{item.question}</span>
                   <span className="faq-toggle-icon" aria-hidden="true" />
                 </summary>

@@ -1,6 +1,10 @@
 import React from "react";
 import "./Footer.css";
 import logo from "../../assets/images/logo.png"
+import CombinedShapepng from "../../assets/images/Combined-Shape.png"
+import path13png from "../../assets/images/path13.png"
+import png from "../../assets/images/220900.png"
+// import iconttpng "../../assets/images/iconttpng"
 
 const Footer = () => {
   return (
@@ -41,7 +45,7 @@ const Footer = () => {
         <div className="footer-col">
           <h4 className="footer-title">Пользователям</h4>
           <ul className="footer-menu">
-            <li><a href="#services">Услуги</a></li>
+            <li><a href="/services">Услуги</a></li>
             <li><a href="/reviews">Отзывы</a></li>
             <li><a href="/price">Прайс</a></li>
             <li><a href="/news">Новости</a></li>
@@ -57,7 +61,7 @@ const Footer = () => {
               className="social-icon-link"
               aria-label="WhatsApp"
             >
-              <img src="/image/Combined-Shape.png" alt="" />
+              <img src={CombinedShapepng} alt="" />
             </button>
 
             <button
@@ -65,7 +69,7 @@ const Footer = () => {
               className="social-icon-link"
               aria-label="Telegram"
             >
-              <img src="/image/path13.png" alt="" />
+              <img src={path13png} alt="" />
             </button>
 
             <button
@@ -73,7 +77,7 @@ const Footer = () => {
               className="social-icon-link"
               aria-label="Instagram"
             >
-              <img src="/image/220900.png" alt="" />
+              <img src={png}alt="" />
             </button>
 
             <button
@@ -81,7 +85,7 @@ const Footer = () => {
               className="social-icon-link"
               aria-label="TikTok"
             >
-              <img src="/image/icon-tt.png" alt="" />
+              {/* <img src={iconttpng} alt="" /> */}
             </button>
           </div>
         </div>

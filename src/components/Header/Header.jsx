@@ -1,14 +1,17 @@
+
 import React from "react";
 import "./Header.css";
-import logo from "../../assets/images/logo.png"
-import flag from '../../assets/images/flag.png'
+
+import logo from "../../assets/images/logo.png";
+import flag from "../../assets/images/flag.png";
+import flagengpng from "../../assets/images/flageng.png";
 
 const Header = () => {
   return (
     <header className="header">
       <div className="container header-container">
 
-        {/* Чекбоксы для управления меню и языком */}
+        {/* Чекбоксы */}
         <input
           type="checkbox"
           id="burger-toggle"
@@ -21,7 +24,7 @@ const Header = () => {
           className="lang-checkbox"
         />
 
-        {/* Кнопка бургера */}
+        {/* Бургер */}
         <label
           htmlFor="burger-toggle"
           className="burger-menu"
@@ -45,34 +48,24 @@ const Header = () => {
         <nav className="nav">
           <ul className="nav-list">
             <li>
-              <a href="/#services" className="nav-link">
-                Услуги
-              </a>
+              <a href="/services" className="nav-link">Услуги</a>
             </li>
             <li>
-              <a href="/price" className="nav-link">
-                Прайс
-              </a>
+              <a href="/price" className="nav-link">Прайс</a>
             </li>
             <li>
-              <a href="/reviews" className="nav-link">
-                Отзывы
-              </a>
+              <a href="/reviews" className="nav-link">Отзывы</a>
             </li>
             <li>
-              <a href="/about" className="nav-link">
-                О нас
-              </a>
+              <a href="/about" className="nav-link">О нас</a>
             </li>
             <li>
-              <a href="/contacts" className="nav-link">
-                Контакты
-              </a>
+              <a href="/contacts" className="nav-link">Контакты</a>
             </li>
           </ul>
         </nav>
 
-        {/* Действия в шапке */}
+        {/* Правая часть */}
         <div className="header-actions">
 
           {/* Переключатель языка */}
@@ -92,7 +85,7 @@ const Header = () => {
             </span>
 
             <img
-              src="/image/flag-eng.png"
+              src={flagengpng}
               alt="ENG"
               className="flag-img flag-en"
             />
@@ -101,13 +94,10 @@ const Header = () => {
               ENG
             </span>
 
-            <i
-              className="fa-solid fa-chevron-down arrow-icon"
-              aria-hidden="true"
-            ></i>
+            <i className="fa-solid fa-chevron-down arrow-icon"></i>
           </label>
 
-          {/* Кнопка начала */}
+          {/* Кнопка */}
           <a href="/application" className="btn-start">
             Начать
           </a>

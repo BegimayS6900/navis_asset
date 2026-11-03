@@ -1,4 +1,5 @@
-/* ===== Стили для новостей (news.html & news-detail.html) ===== */
+
+/* ===== Стили для новостей ===== */
 
 .news-page,
 .news-detail-page {
@@ -16,6 +17,7 @@
 }
 
 /* ===== Общий стиль карточек ===== */
+
 .news-card {
   text-decoration: none;
   color: inherit;
@@ -38,6 +40,11 @@
   height: 100%;
   object-fit: cover;
   display: block;
+  transition: transform 0.4s ease;
+}
+
+.news-card:hover .news-img-wrapper img {
+  transform: scale(1.04);
 }
 
 .news-card-content {
@@ -64,19 +71,39 @@
   color: #A0A0A0;
 }
 
+/* ===== Стрелка 45 градусов ===== */
+
 .arrow-btn {
-  width: 28px;
-  height: 28px;
+  width: 32px;
+  height: 32px;
   background-color: #FDE8E8;
   color: #E22119;
   border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 11px;
+  font-size: 13px;
+  flex-shrink: 0;
+  transition: all 0.3s ease;
 }
 
-/* ===== Главная новость (Большая карточка слева) ===== */
+.arrow-btn i {
+  display: inline-block;
+  transform: rotate(0deg);
+  transition: transform 0.3s ease;
+}
+
+.news-card:hover .arrow-btn {
+  background-color: #E22119;
+  color: #FFFFFF;
+}
+
+.news-card:hover .arrow-btn i {
+  transform: translate(2px, -2px);
+}
+
+/* ===== Главная новость ===== */
+
 .main-news-card {
   flex-direction: column;
   gap: 16px;
@@ -93,13 +120,15 @@
 }
 
 /* 2 колонки малых карточек под главной */
+
 .news-subrow {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 20px;
 }
 
-/* ===== Горизонтальные карточки (Мини) ===== */
+/* ===== Горизонтальные карточки ===== */
+
 .mini-horizontal-card {
   flex-direction: row;
   gap: 14px;
@@ -120,7 +149,8 @@
   overflow: hidden;
 }
 
-/* Правый столбец из 6 новостей */
+/* Правый столбец из новостей */
+
 .news-right-col,
 .sidebar-news-list {
   display: flex;
@@ -128,7 +158,8 @@
   gap: 20px;
 }
 
-/* ===== Стили для отдельной статьи (news-detail.html) ===== */
+/* ===== Стили отдельной статьи ===== */
+
 .btn-back {
   display: inline-flex;
   align-items: center;
@@ -192,7 +223,8 @@
   margin-top: 10px;
 }
 
-/* Правый сайдбар Читать также */
+/* Правый сайдбар */
+
 .sidebar-title {
   font-size: 18px;
   font-weight: 700;
@@ -200,13 +232,12 @@
   margin-bottom: 20px;
 }
 
-
-
 /* ==========================================
-   Адаптивная верстка новостей (news & news-detail)
+   Адаптивная верстка
    ========================================== */
 
-/* --- Планшеты (до 1024px) --- */
+/* Планшеты */
+
 @media (max-width: 1024px) {
   .news-page,
   .news-detail-page {
@@ -214,7 +245,6 @@
     padding-bottom: 80px;
   }
 
-  /* Уменьшаем боковую колонку и зазор */
   .news-grid-layout,
   .news-detail-layout {
     grid-template-columns: 1fr 320px;
@@ -235,14 +265,14 @@
   }
 }
 
-/* --- Планшеты портретно и мобильные (до 768px) --- */
+/* Планшеты и мобильные */
+
 @media (max-width: 768px) {
   .news-page,
   .news-detail-page {
     padding-bottom: 60px;
   }
 
-  /* Переводим макет в одну колонку */
   .news-grid-layout,
   .news-detail-layout {
     grid-template-columns: 1fr;
@@ -257,7 +287,6 @@
     height: 220px;
   }
 
-  /* Карточки под главной статьей выстраиваем в 1 столбец */
   .news-subrow {
     grid-template-columns: 1fr;
     gap: 16px;
@@ -272,7 +301,8 @@
   }
 }
 
-/* --- Маленькие мобильные экраны (до 480px) --- */
+/* Маленькие мобильные экраны */
+
 @media (max-width: 480px) {
   .news-page,
   .news-detail-page {
@@ -288,7 +318,6 @@
     font-size: 16px;
   }
 
-  /* Превью карточек на очень узких экранах */
   .mini-horizontal-card .thumb-img {
     width: 90px;
     height: 70px;
