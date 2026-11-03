@@ -1,52 +1,38 @@
-
-import React from 'react';
-import { Link } from 'react-router-dom';
-import './NewsDetailPage.css';
-
-import mainImage from '../../assets/images/2c111bd592c250789a5a6d396e86d0a693ad8f40.jpg';
-import image1 from '../../assets/images/cf244334f352836c1cb6e8942e6132df639a78b4.jpg';
-import image2 from '../../assets/images/f39067531a181b2ab735852ae751d3aea60343ae.jpg';
-import image3 from '../../assets/images/1e50e24df5b6f0d3dc5b4db6f9b7fb19bf2d4024.jpg';
-import image4 from '../../assets/images/4a65e8b280978f54d0ffd285de64caf6831d194a.jpg';
-
-const relatedNews = [
-  {
-    id: 1,
-    image: image1,
-    title:
-      'Команда отец-сын говорит, что им удалось восстановить $6 млн утраченной криптовалюты',
-    date: '11.06.2024 12:30',
-  },
-  {
-    id: 2,
-    image: image2,
-    title: 'Новости о восстановлении доступа к цифровым активам',
-    date: '11.06.2024 12:30',
-  },
-  {
-    id: 3,
-    image: image3,
-    title: 'Последние новости мира криптовалют',
-    date: '11.06.2024 12:30',
-  },
-  {
-    id: 4,
-    image: image4,
-    title: 'Что нужно знать о безопасности цифровых активов',
-    date: '11.06.2024 12:30',
-  },
-];
+import React from "react";
+import { Link, useParams } from "react-router-dom";
+import "./NewsDetailPage.css";
+import newsData from "../../data/newsData";
 
 const NewsDetailPage = () => {
+  const { id } = useParams();
+
+  // Находим нужную новость по ID
+  const news = newsData.find((item) => item.id === Number(id));
+
+  // Если новости с таким ID нет
+  if (!news) {
+    return (
+      <main className="news-detail-page">
+        <div className="container">
+          <h2>Новость не найдена</h2>
+          <Link to="/news" className="btn-back">
+            Вернуться к новостям
+          </Link>
+        </div>
+      </main>
+    );
+  }
+
+  // Другие новости для блока "Читать также"
+  const relatedNews = newsData.filter(
+    (item) => item.id !== news.id
+  );
+
   return (
     <main className="news-detail-page">
       <div className="container">
 
-        <Link
-          to="/news"
-          className="btn-back"
-          aria-label="Назад к новостям"
-        >
+        <Link to="/news" className="btn-back" aria-label="Назад к новостям">
           <i className="fa-solid fa-arrow-left"></i>
         </Link>
 
@@ -55,54 +41,29 @@ const NewsDetailPage = () => {
           <article className="news-article">
 
             <h1 className="article-title">
-              Команда отец-сын говорит, что им удалось восстановить $6 млн
-              утраченной криптовалюты
+              {news.title}
             </h1>
 
             <span className="article-date">
-              11.06.2024 12:30
+              {news.date}
             </span>
 
             <div className="article-hero-img">
-              <img
-                src={mainImage}
-                alt="Иллюстрация к новости о восстановлении криптовалюты"
-              />
+              <img src={news.image} alt={news.title} />
             </div>
 
             <div className="article-body">
 
-              <p>
-                Президент Сальвадора Найиб Букеле сообщил, что доходы страны,
-                связанные с биткойном, могут поступать из нескольких
-                источников. Они включают результаты инвестиций в биткойн
-                и другие связанные с ним государственные инициативы.
-              </p>
+              <h2>{news.subtitle}</h2>
 
-              <h2>«Сальвадор — страна биткойна»</h2>
-
-              <p>
-                Сальвадор сделал биткойн законным платежным средством
-                наряду с долларом США в сентябре 2021 года. После этого
-                страна продолжила развивать инициативы, связанные
-                с использованием цифровых активов.
-              </p>
-
-              <p>
-                Среди упоминаемых источников дохода — программа паспортов,
-                обмен BTC на доллары для местного бизнеса, майнинг
-                и государственные услуги. Такие заявления привлекли
-                внимание к стратегии страны в отношении биткойна.
-              </p>
-
-              <p>
-                Историю о восстановлении цифровых активов важно оценивать
-                с учетом конкретных обстоятельств. Возможность
-                восстановления зависит от доступных данных, а гарантировать
-                результат заранее нельзя.
-              </p>
+              {news.description.map((paragraph, index) => (
+                <p key={index}>
+                  {paragraph}
+                </p>
+              ))}
 
             </div>
+
           </article>
 
           <aside className="read-also-sidebar">
@@ -113,41 +74,38 @@ const NewsDetailPage = () => {
 
             <div className="sidebar-news-list">
 
-              {relatedNews.map((news) => (
+              {relatedNews.map((item) => (
                 <Link
-                  to={`/news/${news.id}`}
+                  to={`/news/${item.id}`}
                   className="news-card mini-horizontal-card"
-                  key={news.id}
+                  key={item.id}
                 >
                   <div className="news-img-wrapper thumb-img">
-                    <img
-                      src={news.image}
-                      alt={news.title}
-                    />
+                    <img src={item.image} alt={item.title} />
                   </div>
 
                   <div className="news-card-content">
 
                     <h4 className="news-title">
-                      {news.title}
+                      {item.title}
                     </h4>
 
                     <div className="news-card-footer">
-
                       <span className="news-date">
-                        {news.date}
+                        {item.date}
                       </span>
 
                       <span className="arrow-btn">
                         <i className="fa-solid fa-arrow-up-right-from-square"></i>
                       </span>
-
                     </div>
+
                   </div>
                 </Link>
               ))}
 
             </div>
+
           </aside>
 
         </div>
