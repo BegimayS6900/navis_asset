@@ -54,19 +54,19 @@ const Footer = () => {
           <h4 className="footer-title">Мы в соцсетях</h4>
 
           <div className="social-links">
-            <a href="#" className="social-icon-link" aria-label="WhatsApp">
+            <a href="https://www.whatsapp.com/" className="social-icon-link" aria-label="WhatsApp">
               <FaWhatsapp />
             </a>
 
-            <a href="#" className="social-icon-link" aria-label="Telegram">
+            <a href="https://web.telegram.org/a/" className="social-icon-link" aria-label="Telegram">
               <FaTelegramPlane />
             </a>
 
-            <a href="#" className="social-icon-link" aria-label="Instagram">
+            <a href="https://www.instagram.com/" className="social-icon-link" aria-label="Instagram">
               <FaInstagram />
             </a>
 
-            <a href="#" className="social-icon-link" aria-label="TikTok">
+            <a href="https://www.tiktok.com/" className="social-icon-link" aria-label="TikTok">
               <FaTiktok />
             </a>
           </div>
