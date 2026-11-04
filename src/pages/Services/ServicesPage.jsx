@@ -1,75 +1,37 @@
 
 import React from "react";
 import { Link } from "react-router-dom";
+import { useTranslation } from "react-i18next";
 import "./ServicesPage.css";
 
 const services = [
-  {
-    id: 1,
-    number: "01",
-    title: "Возврат криптовалют",
-    description:
-      "Помогаем вернуть цифровые активы, утраченные в результате мошенничества и других неправомерных действий.",
-  },
-  {
-    id: 2,
-    number: "02",
-    title: "Расследование криптовалютных транзакций",
-    description:
-      "Проводим анализ блокчейн-транзакций и помогаем установить движение цифровых активов.",
-  },
-  {
-    id: 3,
-    number: "03",
-    title: "Юридическое сопровождение",
-    description:
-      "Предоставляем консультации и сопровождаем клиентов по вопросам, связанным с цифровыми активами.",
-  },
-  {
-    id: 4,
-    number: "04",
-    title: "Анализ мошеннических схем",
-    description:
-      "Изучаем обстоятельства инцидентов, связанных с криптовалютным мошенничеством.",
-  },
-  {
-    id: 5,
-    number: "05",
-    title: "Консультации специалистов",
-    description:
-      "Помогаем разобраться в сложных ситуациях и определить возможные дальнейшие действия.",
-  },
-  {
-    id: 6,
-    number: "06",
-    title: "Сопровождение клиентов",
-    description:
-      "Оказываем поддержку на протяжении всего процесса работы с обращением.",
-  },
+  { id: 1, number: "01", key: "service1" },
+  { id: 2, number: "02", key: "service2" },
+  { id: 3, number: "03", key: "service3" },
+  { id: 4, number: "04", key: "service4" },
+  { id: 5, number: "05", key: "service5" },
+  { id: 6, number: "06", key: "service6" },
 ];
 
 const ServicesPage = () => {
+  const { t } = useTranslation();
+
   return (
     <main className="services-page">
       <section className="services-hero">
         <div className="container">
-          
-
           <div className="services-hero-content">
             <span className="services-label">NAVIS ASSET</span>
 
             <h1>
-              Наши <span>услуги</span>
+              {t("servicesPage.heroTitle")}{" "}
+              <span>{t("servicesPage.heroTitleAccent")}</span>
             </h1>
 
-            <p>
-              Комплексная помощь в вопросах, связанных
-              с цифровыми активами, криптовалютами
-              и финансовыми расследованиями.
-            </p>
+            <p>{t("servicesPage.heroDescription")}</p>
 
             <Link to="/application" className="services-main-btn">
-              Оставить заявку
+              {t("servicesPage.apply")}
             </Link>
           </div>
         </div>
@@ -79,14 +41,14 @@ const ServicesPage = () => {
         <div className="container">
           <div className="services-section-heading">
             <div>
-              <span className="services-label">ЧТО МЫ ПРЕДЛАГАЕМ</span>
-              <h2>Направления нашей работы</h2>
+              <span className="services-label">
+                {t("servicesPage.sectionLabel")}
+              </span>
+
+              <h2>{t("servicesPage.sectionTitle")}</h2>
             </div>
 
-            <p>
-              Индивидуальный подход к каждому обращению
-              и профессиональная поддержка на всех этапах.
-            </p>
+            <p>{t("servicesPage.sectionDescription")}</p>
           </div>
 
           <div className="services-grid">
@@ -100,15 +62,12 @@ const ServicesPage = () => {
                   <span className="service-arrow">↗</span>
                 </div>
 
-                <h3>{service.title}</h3>
+                <h3>{t(`servicesPage.${service.key}Title`)}</h3>
 
-                <p>{service.description}</p>
+                <p>{t(`servicesPage.${service.key}Description`)}</p>
 
-                <Link
-                  to="/application"
-                  className="service-link"
-                >
-                  Подробнее <span>→</span>
+                <Link to="/application" className="service-link">
+                  {t("servicesPage.more")} <span>→</span>
                 </Link>
               </article>
             ))}
@@ -120,15 +79,14 @@ const ServicesPage = () => {
         <div className="container services-cta-content">
           <div>
             <span className="services-label">NAVIS ASSET</span>
-            <h2>Нужна помощь специалиста?</h2>
-            <p>
-              Оставьте заявку, и наша команда поможет
-              разобраться в вашей ситуации.
-            </p>
+
+            <h2>{t("servicesPage.ctaTitle")}</h2>
+
+            <p>{t("servicesPage.ctaDescription")}</p>
           </div>
 
           <Link to="/application" className="services-main-btn">
-            Связаться с нами
+            {t("servicesPage.contact")}
           </Link>
         </div>
       </section>

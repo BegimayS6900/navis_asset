@@ -1,5 +1,7 @@
-import React from 'react';
-import './ReviewsPage.css';
+
+import React from "react";
+import { useTranslation } from "react-i18next";
+import "./ReviewsPage.css";
 
 // Компонент SVG звезды
 const Star = () => (
@@ -8,7 +10,7 @@ const Star = () => (
   </svg>
 );
 
-// Компонент SVG иконки человечка как на макете
+// Компонент SVG иконки пользователя
 const UserIcon = () => (
   <svg className="user-avatar-icon" viewBox="0 0 14 16" fill="currentColor">
     <path d="M7 8c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z" />
@@ -16,61 +18,25 @@ const UserIcon = () => (
 );
 
 const reviewsList = [
-  {
-    id: 1,
-    text: '«Обмен прошёл успешно! Рекомендую!»',
-    author: 'Орозали',
-    date: '23.05.2024 12:30'
-  },
-  {
-    id: 2,
-    text: '«Я был в полной панике, когда потерял доступ к своему криптокошельку с большим количеством цифровых активов. Обратившись в этот сервис по восстановлению криптокошельков»',
-    author: 'Бекболсун',
-    date: '23.05.2024 12:30'
-  },
-  {
-    id: 3,
-    text: '«Отличная команда специалистов, которые помогли мне во всем разобраться. Спасибо!»',
-    author: 'Талас',
-    date: '23.05.2024 12:30'
-  },
-  {
-    id: 4,
-    text: '«Обмен прошёл успешно! Рекомендую!»',
-    author: 'Курсант',
-    date: '23.05.2024 12:30'
-  },
-  {
-    id: 5,
-    text: '«Я обратился в этот сервис по восстановлению криптокошельков и не пожалел. Профессиональный подход сотрудников и скорость решения проблемы поразили меня»',
-    author: 'Ихсан',
-    date: '23.05.2024 12:30'
-  },
-  {
-    id: 6,
-    text: '«Обмен прошёл успешно! Рекомендую!»',
-    author: 'Курсант',
-    date: '23.05.2024 12:30'
-  },
-  {
-    id: 7,
-    text: '«Сервис индивидуального подхода. Благодарю за отличную работу!»',
-    author: 'Жоомарт',
-    date: '23.05.2024 12:30'
-  },
-  {
-    id: 8,
-    text: '«Спасибо за помощь с восстановлением криптокошелька. Профессиональный подход и оперативное решение проблемы. Очень доволен!»',
-    author: 'Айдар',
-    date: '23.05.2024 12:30'
-  }
+  { id: 1, key: "review1", author: "Орозали", date: "23.05.2024 12:30" },
+  { id: 2, key: "review2", author: "Бекболсун", date: "23.05.2024 12:30" },
+  { id: 3, key: "review3", author: "Талас", date: "23.05.2024 12:30" },
+  { id: 4, key: "review4", author: "Курсант", date: "23.05.2024 12:30" },
+  { id: 5, key: "review5", author: "Ихсан", date: "23.05.2024 12:30" },
+  { id: 6, key: "review6", author: "Курсант", date: "23.05.2024 12:30" },
+  { id: 7, key: "review7", author: "Жоомарт", date: "23.05.2024 12:30" },
+  { id: 8, key: "review8", author: "Айдар", date: "23.05.2024 12:30" },
 ];
 
 export default function ReviewsPage() {
+  const { t } = useTranslation();
+
   return (
     <div className="reviews-container">
-      <h1 className="reviews-title">Отзывы довольных клиентов</h1>
-      
+      <h1 className="reviews-title">
+        {t("reviewsPage.title")}
+      </h1>
+
       <div className="reviews-grid">
         {reviewsList.map((review) => (
           <div key={review.id} className="review-card">
@@ -82,14 +48,23 @@ export default function ReviewsPage() {
                 <Star />
                 <Star />
               </div>
-              <p className="review-text">{review.text}</p>
+
+              <p className="review-text">
+                {t(`reviewsPage.${review.key}`)}
+              </p>
             </div>
-            
+
             <div className="author-block">
               <UserIcon />
+
               <div className="author-info">
-                <span className="author-name">{review.author}</span>
-                <span className="review-date">{review.date}</span>
+                <span className="author-name">
+                  {review.author}
+                </span>
+
+                <span className="review-date">
+                  {review.date}
+                </span>
               </div>
             </div>
           </div>

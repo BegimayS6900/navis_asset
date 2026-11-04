@@ -1,3 +1,4 @@
+
 import image1 from "../assets/images/2c111bd592c250789a5a6d396e86d0a693ad8f40.jpg";
 import image2 from "../assets/images/cf244334f352836c1cb6e8942e6132df639a78b4.jpg";
 import image3 from "../assets/images/f39067531a181b2ab735852ae751d3aea60343ae.jpg";
@@ -8,63 +9,63 @@ const newsData = [
   {
     id: 1,
     image: image1,
-    title: "Команда отец-сын говорит, что им удалось восстановить $6 млн утраченной криптовалюты",
+    titleKey: "newsData.news1.title",
     date: "11.06.2024 12:30",
-    description: [
-      "Команда специалистов рассказала о восстановлении доступа к цифровым активам на сумму около 6 миллионов долларов.",
-      "История привлекла внимание криптовалютного сообщества и показала, насколько важно правильно хранить данные для доступа к цифровым кошелькам.",
-      "Эксперты отмечают, что возможность восстановления зависит от конкретной ситуации и доступной информации."
+    descriptionKeys: [
+      "newsData.news1.description1",
+      "newsData.news1.description2",
+      "newsData.news1.description3"
     ],
-    subtitle: "Как удалось восстановить цифровые активы?",
+    subtitleKey: "newsData.news1.subtitle",
   },
 
   {
     id: 2,
     image: image2,
-    title: "Новости о развитии криптовалютного рынка",
+    titleKey: "newsData.news2.title",
     date: "12.06.2024 14:00",
-    description: [
-      "Криптовалютный рынок продолжает развиваться. Новые технологии привлекают внимание инвесторов и компаний.",
-      "Специалисты анализируют изменения рынка и перспективы цифровых активов.",
-      "Участникам рынка важно учитывать риски и внимательно изучать информацию."
+    descriptionKeys: [
+      "newsData.news2.description1",
+      "newsData.news2.description2",
+      "newsData.news2.description3"
     ],
-    subtitle: "Что происходит на рынке?",
+    subtitleKey: "newsData.news2.subtitle",
   },
 
   {
     id: 3,
     image: image3,
-    title: "Последние новости мира криптовалют",
+    titleKey: "newsData.news3.title",
     date: "13.06.2024 10:30",
-    description: [
-      "В мире цифровых финансов продолжают появляться новые проекты и технологические решения.",
-      "Компании работают над улучшением безопасности и удобства использования цифровых активов."
+    descriptionKeys: [
+      "newsData.news3.description1",
+      "newsData.news3.description2"
     ],
-    subtitle: "Новые технологии",
+    subtitleKey: "newsData.news3.subtitle",
   },
 
   {
     id: 4,
     image: image4,
-    title: "Что нужно знать о безопасности цифровых активов",
+    titleKey: "newsData.news4.title",
     date: "14.06.2024 11:00",
-    description: [
-      "Безопасность цифровых активов остаётся одной из важных тем в криптовалютной индустрии.",
-      "Пользователям рекомендуется внимательно относиться к хранению данных и защите своих аккаунтов."
+    descriptionKeys: [
+      "newsData.news4.description1",
+      "newsData.news4.description2"
     ],
-    subtitle: "Защита цифровых активов",
+    subtitleKey: "newsData.news4.subtitle",
   },
 
   {
     id: 5,
     image: image5,
-    title: "Будущее цифровых финансов и блокчейн-технологий",
+    titleKey: "newsData.news5.title",
     date: "15.06.2024 15:30",
-    description: [
-      "Блокчейн-технологии продолжают находить применение в различных сферах экономики.",
-      "Развитие цифровых финансов открывает новые возможности для бизнеса и пользователей."
+    descriptionKeys: [
+      "newsData.news5.description1",
+      "newsData.news5.description2"
     ],
-    subtitle: "Перспективы блокчейна",
+    subtitleKey: "newsData.news5.subtitle",
   },
 ];
 

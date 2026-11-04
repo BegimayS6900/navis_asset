@@ -1,17 +1,22 @@
 
-import React from 'react';
-import './AboutPage.css';
+import React from "react";
+import { useTranslation } from "react-i18next";
+import "./AboutPage.css";
 
 // Images
-import founderPhoto from '../../assets/images/photo.png';
-import companyImage from '../../assets/images/cfc3332b61a4d605724a76a26f6711b1c1b1adf9.jpg';
-import teamImage from '../../assets/images/173b638eb41eadaead3c70ded0f0bb933c470c01.jpg';
+import founderPhoto from "../../assets/images/photo.png";
+import companyImage from "../../assets/images/cfc3332b61a4d605724a76a26f6711b1c1b1adf9.jpg";
+import teamImage from "../../assets/images/173b638eb41eadaead3c70ded0f0bb933c470c01.jpg";
 
 const AboutPage = () => {
+  const { t } = useTranslation();
+
   return (
     <main className="about-page">
       <div className="container section-container">
-        <h1 className="section-title page-title">О Navis Asset</h1>
+        <h1 className="section-title page-title">
+          {t("aboutPage.title")}
+        </h1>
 
         <div className="about-grid">
           <div className="about-group">
@@ -20,12 +25,14 @@ const AboutPage = () => {
                 <div className="founder-info">
                   <img
                     src={founderPhoto}
-                    alt="Основатель компании"
+                    alt={t("aboutPage.founderAlt")}
                     className="founder-img"
                   />
 
                   <div>
-                    <span className="founder-role">Основатель:</span>
+                    <span className="founder-role">
+                      {t("aboutPage.founder")}
+                    </span>
                     <h3 className="founder-name">
                       Тилек<br />Бегалиев
                     </h3>
@@ -35,20 +42,24 @@ const AboutPage = () => {
 
               <div className="about-card stat-card stat-red">
                 <div className="stat-number">45+</div>
-                <div className="stat-label">Довольных клиентов</div>
+                <div className="stat-label">
+                  {t("aboutPage.clients")}
+                </div>
               </div>
             </div>
 
             <div className="about-card stat-card stat-gray">
               <div className="stat-number">100%</div>
-              <div className="stat-label">Качественная работа</div>
+              <div className="stat-label">
+                {t("aboutPage.quality")}
+              </div>
             </div>
           </div>
 
           <div className="about-card photo-card">
             <img
               src={companyImage}
-              alt="Здание компании"
+              alt={t("aboutPage.companyAlt")}
               className="about-img"
               loading="lazy"
             />
@@ -57,7 +68,7 @@ const AboutPage = () => {
           <div className="about-card photo-card">
             <img
               src={teamImage}
-              alt="Наша команда"
+              alt={t("aboutPage.teamAlt")}
               className="about-img"
               loading="lazy"
             />
@@ -67,16 +78,16 @@ const AboutPage = () => {
             <div className="about-card stat-card stat-black">
               <div className="stat-number">10+</div>
               <div className="stat-label">
-                Профессиональных<br />
-                сотрудников команды
+                {t("aboutPage.employees")}
               </div>
             </div>
 
             <div className="about-card stat-card stat-light">
-              <div className="stat-title">Гарантия</div>
+              <div className="stat-title">
+                {t("aboutPage.guarantee")}
+              </div>
               <div className="stat-label">
-                Профессиональных<br />
-                сотрудников команды
+                {t("aboutPage.professionalTeam")}
               </div>
             </div>
           </div>
@@ -85,40 +96,23 @@ const AboutPage = () => {
         <div className="about-text-sections">
           <div className="about-text-row">
             <h2 className="about-text-title">
-              Гарантируем, что ваша криптовалюта всегда остается у вас
+              {t("aboutPage.promiseTitle")}
             </h2>
 
             <div className="about-text-content">
-              <p>
-                Методы, которые мы используем для восстановления учетных
-                записей наших клиентов, различаются в зависимости от
-                конкретного случая. При восстановлении пароля мы помогаем
-                клиентам разобраться с резервными копиями и доступными
-                способами восстановления. Никогда не передавайте третьим
-                лицам свою секретную фразу или закрытый ключ.
-              </p>
+              <p>{t("aboutPage.promiseText")}</p>
             </div>
           </div>
 
           <div className="about-text-row">
-            <h2 className="about-text-title">О наших основателях</h2>
+            <h2 className="about-text-title">
+              {t("aboutPage.foundersTitle")}
+            </h2>
 
             <div className="about-text-content">
-              <p>
-                Navis Asset стремится помогать владельцам криптовалют
-                разбираться с вопросами доступа к цифровым активам.
-              </p>
-
-              <p>
-                Наша команда изучает особенности каждого случая и помогает
-                клиентам понять доступные варианты восстановления доступа.
-              </p>
-
-              <p>
-                Мы стремимся предоставлять понятную информацию и
-                профессиональную поддержку. Результат восстановления
-                зависит от конкретной ситуации и имеющихся данных.
-              </p>
+              <p>{t("aboutPage.foundersText1")}</p>
+              <p>{t("aboutPage.foundersText2")}</p>
+              <p>{t("aboutPage.foundersText3")}</p>
             </div>
           </div>
         </div>

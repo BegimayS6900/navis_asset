@@ -1,6 +1,8 @@
 
 import React from "react";
+import { useTranslation } from "react-i18next";
 import "./Footer.css";
+
 import logo from "../../assets/images/logo.png";
 
 import {
@@ -11,6 +13,8 @@ import {
 } from "react-icons/fa";
 
 const Footer = () => {
+  const { t } = useTranslation();
+
   return (
     <footer className="footer">
       <div className="container footer-top">
@@ -21,8 +25,7 @@ const Footer = () => {
           </a>
 
           <p className="footer-description">
-            Международный сервис, где вам быстро и надёжно
-            восстановят забытый криптокошелёк
+            {t("footer.description")}
           </p>
 
           <a href="mailto:navisasset@mail.com" className="footer-email">
@@ -31,42 +34,66 @@ const Footer = () => {
         </div>
 
         <div className="footer-col">
-          <h4 className="footer-title">Основное</h4>
+          <h4 className="footer-title">
+            {t("footer.main")}
+          </h4>
+
           <ul className="footer-menu">
-            <li><a href="/about">О нас</a></li>
-            <li><a href="/contacts">Контакты</a></li>
-            <li><a href="#partners">Партнёры</a></li>
-            <li><a href="/about">Почему NavisAsset?</a></li>
+            <li><a href="/about">{t("footer.about")}</a></li>
+            <li><a href="/contacts">{t("footer.contacts")}</a></li>
+            <li><a href="#partners">{t("footer.partners")}</a></li>
+            <li><a href="/about">{t("footer.whyUs")}</a></li>
           </ul>
         </div>
 
         <div className="footer-col">
-          <h4 className="footer-title">Пользователям</h4>
+          <h4 className="footer-title">
+            {t("footer.users")}
+          </h4>
+
           <ul className="footer-menu">
-            <li><a href="/services">Услуги</a></li>
-            <li><a href="/reviews">Отзывы</a></li>
-            <li><a href="/price">Прайс</a></li>
-            <li><a href="/news">Новости</a></li>
+            <li><a href="/services">{t("services")}</a></li>
+            <li><a href="/reviews">{t("reviews")}</a></li>
+            <li><a href="/price">{t("price")}</a></li>
+            <li><a href="/news">{t("news")}</a></li>
           </ul>
         </div>
 
         <div className="footer-col">
-          <h4 className="footer-title">Мы в соцсетях</h4>
+          <h4 className="footer-title">
+            {t("footer.social")}
+          </h4>
 
           <div className="social-links">
-            <a href="https://www.whatsapp.com/" className="social-icon-link" aria-label="WhatsApp">
+            <a
+              href="https://www.whatsapp.com/"
+              className="social-icon-link"
+              aria-label="WhatsApp"
+            >
               <FaWhatsapp />
             </a>
 
-            <a href="https://web.telegram.org/a/" className="social-icon-link" aria-label="Telegram">
+            <a
+              href="https://web.telegram.org/a/"
+              className="social-icon-link"
+              aria-label="Telegram"
+            >
               <FaTelegramPlane />
             </a>
 
-            <a href="https://www.instagram.com/" className="social-icon-link" aria-label="Instagram">
+            <a
+              href="https://www.instagram.com/"
+              className="social-icon-link"
+              aria-label="Instagram"
+            >
               <FaInstagram />
             </a>
 
-            <a href="https://www.tiktok.com/" className="social-icon-link" aria-label="TikTok">
+            <a
+              href="https://www.tiktok.com/"
+              className="social-icon-link"
+              aria-label="TikTok"
+            >
               <FaTiktok />
             </a>
           </div>
@@ -76,10 +103,12 @@ const Footer = () => {
 
       <div className="footer-bottom">
         <div className="container footer-bottom-content">
-          <p>© 2024 NavisAsset. Все права защищены</p>
+          <p>{t("footer.copyright")}</p>
 
           <p className="credits">
-            Made with <span className="heart">♥</span> by{" "}
+            {t("footer.madeWith")}{" "}
+            <span className="heart">♥</span>{" "}
+            {t("footer.by")}{" "}
             <a href="/" className="dev-link">NavisDevs</a>
           </p>
         </div>

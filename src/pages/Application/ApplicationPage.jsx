@@ -1,5 +1,6 @@
 
 import React, { useState } from "react";
+import { useTranslation } from "react-i18next";
 import "./ApplicationPage.css";
 
 import {
@@ -10,6 +11,8 @@ import {
 } from "react-icons/fa";
 
 const ApplicationPage = () => {
+  const { t } = useTranslation();
+
   const [formData, setFormData] = useState({
     firstName: "",
     lastName: "",
@@ -33,7 +36,7 @@ const ApplicationPage = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    alert("Заявка заполнена! Для отправки подключите сервер.");
+    alert(t("application.success"));
   };
 
   return (
@@ -51,12 +54,11 @@ const ApplicationPage = () => {
 
               <div className="feature-content">
                 <h3 className="feature-title">
-                  Доверенное восстановление кошелька
+                  {t("application.feature1Title")}
                 </h3>
 
                 <p className="feature-description">
-                  Помогаем разобраться с доступом к цифровым активам
-                  с учетом особенностей каждого случая.
+                  {t("application.feature1Text")}
                 </p>
               </div>
             </div>
@@ -68,12 +70,11 @@ const ApplicationPage = () => {
 
               <div className="feature-content">
                 <h3 className="feature-title">
-                  Безопасность данных
+                  {t("application.feature2Title")}
                 </h3>
 
                 <p className="feature-description">
-                  Бережно относитесь к своим данным и не передавайте
-                  посторонним Seed-фразу или закрытые ключи.
+                  {t("application.feature2Text")}
                 </p>
               </div>
             </div>
@@ -85,12 +86,11 @@ const ApplicationPage = () => {
 
               <div className="feature-content">
                 <h3 className="feature-title">
-                  Оставьте заявку
+                  {t("application.feature3Title")}
                 </h3>
 
                 <p className="feature-description">
-                  Опишите свою ситуацию, чтобы узнать о возможных
-                  вариантах восстановления доступа.
+                  {t("application.feature3Text")}
                 </p>
               </div>
             </div>
@@ -106,13 +106,15 @@ const ApplicationPage = () => {
 
               <div className="form-row">
                 <div className="form-group">
-                  <label htmlFor="firstName">Имя</label>
+                  <label htmlFor="firstName">
+                    {t("application.firstName")}
+                  </label>
 
                   <input
                     type="text"
                     id="firstName"
                     name="firstName"
-                    placeholder="Имя"
+                    placeholder={t("application.firstName")}
                     value={formData.firstName}
                     onChange={handleChange}
                     autoComplete="given-name"
@@ -121,13 +123,15 @@ const ApplicationPage = () => {
                 </div>
 
                 <div className="form-group">
-                  <label htmlFor="lastName">Фамилия</label>
+                  <label htmlFor="lastName">
+                    {t("application.lastName")}
+                  </label>
 
                   <input
                     type="text"
                     id="lastName"
                     name="lastName"
-                    placeholder="Фамилия"
+                    placeholder={t("application.lastName")}
                     value={formData.lastName}
                     onChange={handleChange}
                     autoComplete="family-name"
@@ -138,7 +142,9 @@ const ApplicationPage = () => {
 
               {/* Страна */}
               <div className="form-group">
-                <label htmlFor="country">Страна</label>
+                <label htmlFor="country">
+                  {t("application.country")}
+                </label>
 
                 <div className="select-wrapper">
                   <select
@@ -149,12 +155,12 @@ const ApplicationPage = () => {
                     required
                   >
                     <option value="" disabled>
-                      Выберите страну
+                      {t("application.selectCountry")}
                     </option>
 
-                    <option value="kg">Кыргызстан</option>
-                    <option value="ru">Россия</option>
-                    <option value="kz">Казахстан</option>
+                    <option value="kg">{t("application.kyrgyzstan")}</option>
+                    <option value="ru">{t("application.russia")}</option>
+                    <option value="kz">{t("application.kazakhstan")}</option>
                   </select>
 
                   <FaChevronDown className="select-arrow" />
@@ -164,13 +170,15 @@ const ApplicationPage = () => {
               {/* Почта и телефон */}
               <div className="form-row">
                 <div className="form-group">
-                  <label htmlFor="email">Почта</label>
+                  <label htmlFor="email">
+                    {t("application.email")}
+                  </label>
 
                   <input
                     type="email"
                     id="email"
                     name="email"
-                    placeholder="Электронная почта"
+                    placeholder={t("application.emailPlaceholder")}
                     value={formData.email}
                     onChange={handleChange}
                     autoComplete="email"
@@ -179,7 +187,9 @@ const ApplicationPage = () => {
                 </div>
 
                 <div className="form-group">
-                  <label htmlFor="phone">Номер телефона</label>
+                  <label htmlFor="phone">
+                    {t("application.phone")}
+                  </label>
 
                   <input
                     type="tel"
@@ -197,7 +207,7 @@ const ApplicationPage = () => {
               {/* Тип восстановления */}
               <div className="form-group">
                 <label htmlFor="recoveryType">
-                  Тип восстановления
+                  {t("application.recoveryType")}
                 </label>
 
                 <div className="select-wrapper">
@@ -209,15 +219,15 @@ const ApplicationPage = () => {
                     required
                   >
                     <option value="" disabled>
-                      Выберите тип восстановления
+                      {t("application.selectRecoveryType")}
                     </option>
 
                     <option value="pass">
-                      Восстановление пароля
+                      {t("application.passwordRecovery")}
                     </option>
 
                     <option value="seed">
-                      Консультация по восстановлению доступа
+                      {t("application.accessConsultation")}
                     </option>
                   </select>
 
@@ -229,7 +239,7 @@ const ApplicationPage = () => {
               <div className="form-row">
                 <div className="form-group">
                   <label htmlFor="walletType">
-                    Вид кошелька
+                    {t("application.walletType")}
                   </label>
 
                   <div className="select-wrapper">
@@ -241,13 +251,13 @@ const ApplicationPage = () => {
                       required
                     >
                       <option value="" disabled>
-                        Выберите тип
+                        {t("application.selectWalletType")}
                       </option>
 
                       <option value="metamask">MetaMask</option>
                       <option value="trust">Trust Wallet</option>
                       <option value="ledger">Ledger</option>
-                      <option value="other">Другой</option>
+                      <option value="other">{t("application.other")}</option>
                     </select>
 
                     <FaChevronDown className="select-arrow" />
@@ -256,14 +266,14 @@ const ApplicationPage = () => {
 
                 <div className="form-group">
                   <label htmlFor="walletVolume">
-                    Объем кошелька
+                    {t("application.walletVolume")}
                   </label>
 
                   <input
                     type="text"
                     id="walletVolume"
                     name="walletVolume"
-                    placeholder="Объем кошелька"
+                    placeholder={t("application.walletVolume")}
                     value={formData.walletVolume}
                     onChange={handleChange}
                   />
@@ -282,16 +292,15 @@ const ApplicationPage = () => {
                 />
 
                 <label htmlFor="agreement">
-                  Нажимая на кнопку «Отправить заявку», я принимаю
-                  условия{" "}
+                  {t("application.agreementStart")}{" "}
                   <a href="/agreement">
-                    Пользовательского соглашения
+                    {t("application.agreementLink")}
                   </a>
                 </label>
               </div>
 
               <button type="submit" className="btn-submit">
-                Отправить заявку
+                {t("application.submit")}
               </button>
 
             </form>

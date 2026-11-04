@@ -1,69 +1,50 @@
 
-import React from 'react';
-import { Link } from 'react-router-dom';
-import './PricePage.css';
-
-const features = [
-  'Выделенный сотрудник службы поддержки',
-  'Время ответа в течение 24 часов',
-  'Опциональная консультация в Zoom',
-  'Профессиональная команда',
-  'Индивидуальная разработка',
-];
+import React from "react";
+import { Link } from "react-router-dom";
+import { useTranslation } from "react-i18next";
+import "./PricePage.css";
 
 function PricePage() {
+  const { t } = useTranslation();
+
+  const features = [
+    t("pricePage.feature1"),
+    t("pricePage.feature2"),
+    t("pricePage.feature3"),
+    t("pricePage.feature4"),
+    t("pricePage.feature5"),
+  ];
+
   return (
     <main className="price-page">
       <div className="container">
         <div className="price-wrapper">
+
           {/* Левый текстовый блок */}
           <div className="price-info-card">
-            <h1 className="price-title">Прайс</h1>
+            <h1 className="price-title">
+              {t("pricePage.title")}
+            </h1>
 
             <div className="price-description">
-              <p>
-                Мы понимаем, что доверить нам ваши активы — это серьезное
-                дело. Поэтому мы очень ответственно относимся к нашей работе
-                по восстановлению ваших потерянных активов. Наша экспертиза
-                и знания в области восстановления криптовалютных активов —
-                это то, что отличает нас, и именно это позволяет нам
-                взламывать пароли кошельков, чтобы вы могли вернуть свои активы.
-              </p>
-
-              <p>
-                Мы также знаем, что процесс восстановления криптовалютных
-                активов часто включает в себя чувствительную личную и
-                финансовую информацию, поэтому мы обрабатываем каждый случай
-                с самым высоким уровнем безопасности и конфиденциальности.
-              </p>
-
-              <p>
-                За восстановление паролей мы берем комиссию в размере 25%
-                от восстановленных токенов, что отражает ценность, которую
-                мы приносим на стол, благодаря нашей экспертизе и безопасной
-                обработке каждого случая.
-              </p>
-
-              <p>
-                И вот лучшая часть: наша услуга безопасна! Это означает,
-                что вы платите нам только в случае успешного восстановления
-                ваших активов. Если мы не можем взломать кошелек, вы не
-                платите ни цента. Мы верим в то, что слова должны
-                соответствовать делам, и поэтому мы уверены в наших
-                способностях вернуть ваши активы.
-              </p>
+              <p>{t("pricePage.description1")}</p>
+              <p>{t("pricePage.description2")}</p>
+              <p>{t("pricePage.description3")}</p>
+              <p>{t("pricePage.description4")}</p>
             </div>
           </div>
 
           {/* Правая карточка с тарифом */}
           <div className="price-card">
             <h2 className="price-card-title">
-              Восстановление кошелька
+              {t("pricePage.cardTitle")}
             </h2>
 
             <div className="price-value-box">
               <span className="price-number">25%</span>
-              <span className="price-subtext">от кошелька</span>
+              <span className="price-subtext">
+                {t("pricePage.priceSubtext")}
+              </span>
             </div>
 
             <ul className="price-features">
@@ -78,9 +59,10 @@ function PricePage() {
             </ul>
 
             <Link to="/application" className="btn-price-action">
-              Начать восстановление
+              {t("pricePage.button")}
             </Link>
           </div>
+
         </div>
       </div>
     </main>

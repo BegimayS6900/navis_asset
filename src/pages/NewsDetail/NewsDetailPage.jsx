@@ -1,21 +1,27 @@
 
 import React from "react";
 import { Link, useParams } from "react-router-dom";
+import { useTranslation } from "react-i18next";
+
 import "./NewsDetailPage.css";
 import newsData from "../../data/newsData";
 
 const NewsDetailPage = () => {
   const { id } = useParams();
+  const { t } = useTranslation();
 
-  const news = newsData.find((item) => item.id === Number(id));
+  const news = newsData.find(
+    (item) => item.id === Number(id)
+  );
 
   if (!news) {
     return (
       <main className="news-detail-page">
         <div className="container">
-          <h2>Новость не найдена</h2>
+          <h2>{t("newsDetail.notFound")}</h2>
+
           <Link to="/news" className="btn-back">
-            Вернуться к новостям
+            {t("newsDetail.backToNews")}
           </Link>
         </div>
       </main>
@@ -33,7 +39,7 @@ const NewsDetailPage = () => {
         <Link
           to="/news"
           className="btn-back"
-          aria-label="Назад к новостям"
+          aria-label={t("newsDetail.backToNews")}
         >
           <svg
             width="20"
@@ -52,10 +58,11 @@ const NewsDetailPage = () => {
 
         <div className="news-detail-layout">
 
+          {/* Основная новость */}
           <article className="news-article">
 
             <h1 className="article-title">
-              {news.title}
+              {t(news.titleKey)}
             </h1>
 
             <span className="article-date">
@@ -63,16 +70,19 @@ const NewsDetailPage = () => {
             </span>
 
             <div className="article-hero-img">
-              <img src={news.image} alt={news.title} />
+              <img
+                src={news.image}
+                alt={t(news.titleKey)}
+              />
             </div>
 
             <div className="article-body">
 
-              <h2>{news.subtitle}</h2>
+              <h2>{t(news.subtitleKey)}</h2>
 
-              {news.description.map((paragraph, index) => (
+              {news.descriptionKeys.map((key, index) => (
                 <p key={index}>
-                  {paragraph}
+                  {t(key)}
                 </p>
               ))}
 
@@ -80,10 +90,11 @@ const NewsDetailPage = () => {
 
           </article>
 
+          {/* Читать также */}
           <aside className="read-also-sidebar">
 
             <h3 className="sidebar-title">
-              Читать также:
+              {t("newsDetail.readAlso")}
             </h3>
 
             <div className="sidebar-news-list">
@@ -95,13 +106,16 @@ const NewsDetailPage = () => {
                   key={item.id}
                 >
                   <div className="news-img-wrapper thumb-img">
-                    <img src={item.image} alt={item.title} />
+                    <img
+                      src={item.image}
+                      alt={t(item.titleKey)}
+                    />
                   </div>
 
                   <div className="news-card-content">
 
                     <h4 className="news-title">
-                      {item.title}
+                      {t(item.titleKey)}
                     </h4>
 
                     <div className="news-card-footer">

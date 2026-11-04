@@ -1,24 +1,37 @@
 
 import React from "react";
 import { Link } from "react-router-dom";
+import { useTranslation } from "react-i18next";
+
 import "./NewsPage.css";
 import newsData from "../../data/newsData";
 
 const NewsCard = ({ news, main = false }) => {
+  const { t } = useTranslation();
+
   return (
     <Link
       to={`/news/${news.id}`}
-      className={`news-card ${main ? "main-news-card" : "mini-horizontal-card"}`}
+      className={`news-card ${
+        main ? "main-news-card" : "mini-horizontal-card"
+      }`}
     >
       <div className={`news-img-wrapper ${main ? "main-img" : "thumb-img"}`}>
-        <img src={news.image} alt={news.title} />
+        <img
+          src={news.image}
+          alt={t(news.titleKey)}
+        />
       </div>
 
       <div className="news-card-content">
         {main ? (
-          <h2 className="news-title">{news.title}</h2>
+          <h2 className="news-title">
+            {t(news.titleKey)}
+          </h2>
         ) : (
-          <h3 className="news-title">{news.title}</h3>
+          <h3 className="news-title">
+            {t(news.titleKey)}
+          </h3>
         )}
 
         <div className="news-card-footer">
@@ -55,8 +68,11 @@ const NewsPage = () => {
     <main className="news-page">
       <div className="container">
         <div className="news-grid-layout">
+
           <div className="news-left-col">
-            {mainNews && <NewsCard news={mainNews} main />}
+            {mainNews && (
+              <NewsCard news={mainNews} main />
+            )}
 
             <div className="news-subrow">
               {leftNews.map((news) => (
@@ -70,6 +86,7 @@ const NewsPage = () => {
               <NewsCard key={news.id} news={news} />
             ))}
           </div>
+
         </div>
       </div>
     </main>
