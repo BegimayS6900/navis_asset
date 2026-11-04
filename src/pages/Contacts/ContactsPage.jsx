@@ -1,17 +1,28 @@
 
-import React, { useState } from 'react';
-import './ContactsPage.css';
+import React, { useState } from "react";
+import "./ContactsPage.css";
+
+import {
+  FaWhatsapp,
+  FaTelegramPlane,
+  FaInstagram,
+  FaTiktok,
+  FaMapMarkerAlt,
+  FaPhoneAlt,
+  FaEnvelope,
+  FaChevronDown,
+} from "react-icons/fa";
 
 const ContactsPage = () => {
   const [formData, setFormData] = useState({
-    firstName: '',
-    lastName: '',
-    country: '',
-    email: '',
-    phone: '',
-    recoveryType: '',
-    walletType: '',
-    walletVolume: '',
+    firstName: "",
+    lastName: "",
+    country: "",
+    email: "",
+    phone: "",
+    recoveryType: "",
+    walletType: "",
+    walletVolume: "",
     agreement: false,
   });
 
@@ -20,83 +31,94 @@ const ContactsPage = () => {
 
     setFormData((prev) => ({
       ...prev,
-      [name]: type === 'checkbox' ? checked : value,
+      [name]: type === "checkbox" ? checked : value,
     }));
   };
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    alert('Форма заполнена. Для отправки сообщений подключите сервер или API.');
+    alert("Форма заполнена. Для отправки сообщений подключите сервер или API.");
   };
 
   return (
     <main className="contacts-page">
       <div className="container">
         <div className="contacts-wrapper">
+
+          {/* Левая часть */}
           <div className="contacts-info-card">
             <h1 className="contacts-title">
               Техническая поддержка, сотрудничество и PR
             </h1>
 
             <div className="contacts-details">
+
               <div className="contact-item">
-                <i className="fa-solid fa-location-dot contact-icon"></i>
+                <FaMapMarkerAlt className="contact-icon" />
                 <span>
                   Кыргызская Республика, г. Бишкек, проспект Манаса 64/1
                 </span>
               </div>
 
               <div className="contact-item">
-                <i className="fa-solid fa-phone contact-icon"></i>
+                <FaPhoneAlt className="contact-icon" />
                 <div className="phone-numbers">
-                  <a href="tel:+996502800202">+996 (502)-800-202</a>
-                  <a href="tel:+996502800202">+996 (502)-800-202</a>
+                  <a href="tel:+996502800202">
+                    +996 (502)-800-202
+                  </a>
+                  <a href="tel:+996502800202">
+                    +996 (502)-800-202
+                  </a>
                 </div>
               </div>
 
               <div className="contact-item">
-                <i className="fa-solid fa-envelope contact-icon"></i>
+                <FaEnvelope className="contact-icon" />
                 <a href="mailto:navisasset@mail.com">
                   navisasset@mail.com
                 </a>
               </div>
+
             </div>
 
+            {/* Социальные сети */}
             <div className="contacts-socials">
               <h3 className="socials-title">Мы в соцсетях</h3>
 
               <div className="social-icons">
+
                 <a
-                  href="/"
+                  href="#"
                   className="social-icon-btn"
                   aria-label="WhatsApp"
                 >
-                  <i className="fa-brands fa-whatsapp"></i>
+                  <FaWhatsapp />
                 </a>
 
                 <a
-                  href="/"
+                  href="#"
                   className="social-icon-btn"
                   aria-label="Telegram"
                 >
-                  <i className="fa-brands fa-telegram"></i>
+                  <FaTelegramPlane />
                 </a>
 
                 <a
-                  href="/"
+                  href="#"
                   className="social-icon-btn"
                   aria-label="Instagram"
                 >
-                  <i className="fa-brands fa-instagram"></i>
+                  <FaInstagram />
                 </a>
 
                 <a
-                  href="/"
+                  href="#"
                   className="social-icon-btn"
                   aria-label="TikTok"
                 >
-                  <i className="fa-brands fa-tiktok"></i>
+                  <FaTiktok />
                 </a>
+
               </div>
             </div>
 
@@ -107,7 +129,9 @@ const ContactsPage = () => {
             </p>
           </div>
 
+          {/* Правая часть — форма */}
           <form className="contacts-form" onSubmit={handleSubmit}>
+
             <div className="form-row">
               <div className="form-group">
                 <label htmlFor="contact-first-name">Имя</label>
@@ -138,8 +162,10 @@ const ContactsPage = () => {
               </div>
             </div>
 
+            {/* Страна */}
             <div className="form-group">
               <label htmlFor="contact-country">Страна</label>
+
               <div className="select-wrapper">
                 <select
                   id="contact-country"
@@ -148,15 +174,19 @@ const ContactsPage = () => {
                   onChange={handleChange}
                   required
                 >
-                  <option value="" disabled>Выберите страну</option>
+                  <option value="" disabled>
+                    Выберите страну
+                  </option>
                   <option value="kg">Кыргызстан</option>
                   <option value="ru">Россия</option>
                   <option value="kz">Казахстан</option>
                 </select>
-                <i className="fa-solid fa-chevron-down select-arrow"></i>
+
+                <FaChevronDown className="select-arrow" />
               </div>
             </div>
 
+            {/* Почта и телефон */}
             <div className="form-row">
               <div className="form-group">
                 <label htmlFor="contact-email">Почта</label>
@@ -187,10 +217,12 @@ const ContactsPage = () => {
               </div>
             </div>
 
+            {/* Тип восстановления */}
             <div className="form-group">
               <label htmlFor="contact-recovery-type">
                 Тип восстановления
               </label>
+
               <div className="select-wrapper">
                 <select
                   id="contact-recovery-type"
@@ -202,16 +234,25 @@ const ContactsPage = () => {
                   <option value="" disabled>
                     Выберите тип восстановления
                   </option>
-                  <option value="pass">Восстановление пароля</option>
-                  <option value="seed">Восстановление Seed-фразы</option>
+                  <option value="pass">
+                    Восстановление пароля
+                  </option>
+                  <option value="seed">
+                    Восстановление Seed-фразы
+                  </option>
                 </select>
-                <i className="fa-solid fa-chevron-down select-arrow"></i>
+
+                <FaChevronDown className="select-arrow" />
               </div>
             </div>
 
+            {/* Кошелёк */}
             <div className="form-row">
               <div className="form-group">
-                <label htmlFor="contact-wallet-type">Вид кошелька</label>
+                <label htmlFor="contact-wallet-type">
+                  Вид кошелька
+                </label>
+
                 <div className="select-wrapper">
                   <select
                     id="contact-wallet-type"
@@ -220,12 +261,15 @@ const ContactsPage = () => {
                     onChange={handleChange}
                     required
                   >
-                    <option value="" disabled>Выберите тип</option>
+                    <option value="" disabled>
+                      Выберите тип
+                    </option>
                     <option value="metamask">MetaMask</option>
                     <option value="trust">Trust Wallet</option>
                     <option value="ledger">Ledger</option>
                   </select>
-                  <i className="fa-solid fa-chevron-down select-arrow"></i>
+
+                  <FaChevronDown className="select-arrow" />
                 </div>
               </div>
 
@@ -233,6 +277,7 @@ const ContactsPage = () => {
                 <label htmlFor="contact-wallet-volume">
                   Объем кошелька
                 </label>
+
                 <input
                   type="text"
                   id="contact-wallet-volume"
@@ -244,6 +289,7 @@ const ContactsPage = () => {
               </div>
             </div>
 
+            {/* Согласие */}
             <div className="form-checkbox-group">
               <input
                 type="checkbox"
@@ -255,14 +301,17 @@ const ContactsPage = () => {
               />
 
               <label htmlFor="contact-agreement">
-                Нажимая на кнопку «Отправить заявку», я принимаю условия{' '}
-                <a href="/agreement">Пользовательского соглашения</a>
+                Нажимая на кнопку «Отправить заявку», я принимаю условия{" "}
+                <a href="/agreement">
+                  Пользовательского соглашения
+                </a>
               </label>
             </div>
 
             <button type="submit" className="btn-submit">
               Отправить заявку
             </button>
+
           </form>
         </div>
       </div>

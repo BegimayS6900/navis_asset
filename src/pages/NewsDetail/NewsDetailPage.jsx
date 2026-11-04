@@ -1,3 +1,4 @@
+
 import React from "react";
 import { Link, useParams } from "react-router-dom";
 import "./NewsDetailPage.css";
@@ -6,10 +7,8 @@ import newsData from "../../data/newsData";
 const NewsDetailPage = () => {
   const { id } = useParams();
 
-  // Находим нужную новость по ID
   const news = newsData.find((item) => item.id === Number(id));
 
-  // Если новости с таким ID нет
   if (!news) {
     return (
       <main className="news-detail-page">
@@ -23,7 +22,6 @@ const NewsDetailPage = () => {
     );
   }
 
-  // Другие новости для блока "Читать также"
   const relatedNews = newsData.filter(
     (item) => item.id !== news.id
   );
@@ -32,8 +30,24 @@ const NewsDetailPage = () => {
     <main className="news-detail-page">
       <div className="container">
 
-        <Link to="/news" className="btn-back" aria-label="Назад к новостям">
-          <i className="fa-solid fa-arrow-left"></i>
+        <Link
+          to="/news"
+          className="btn-back"
+          aria-label="Назад к новостям"
+        >
+          <svg
+            width="20"
+            height="20"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            strokeWidth="2"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+          >
+            <path d="M19 12H5" />
+            <path d="m12 19-7-7 7-7" />
+          </svg>
         </Link>
 
         <div className="news-detail-layout">
@@ -91,15 +105,28 @@ const NewsDetailPage = () => {
                     </h4>
 
                     <div className="news-card-footer">
+
                       <span className="news-date">
                         {item.date}
                       </span>
 
                       <span className="arrow-btn">
-                        <i className="fa-solid fa-arrow-up-right-from-square"></i>
+                        <svg
+                          width="18"
+                          height="18"
+                          viewBox="0 0 24 24"
+                          fill="none"
+                          stroke="currentColor"
+                          strokeWidth="2"
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                        >
+                          <path d="M7 17 17 7" />
+                          <path d="M7 7h10v10" />
+                        </svg>
                       </span>
-                    </div>
 
+                    </div>
                   </div>
                 </Link>
               ))}

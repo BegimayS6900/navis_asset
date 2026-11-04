@@ -1,12 +1,13 @@
-/* ===== Стили для страницы Application ===== */
 
-/* Отступы страницы */
+/* ===== Страница Application ===== */
+
 .application-page {
   padding-top: 60px;
   padding-bottom: 100px;
 }
 
-/* Главный контейнер разметки */
+/* ===== Главный контейнер ===== */
+
 .application-wrapper {
   display: grid;
   grid-template-columns: 1fr 500px;
@@ -17,6 +18,7 @@
 }
 
 /* ===== Левая часть: преимущества ===== */
+
 .application-features {
   display: flex;
   flex-direction: column;
@@ -30,10 +32,13 @@
   gap: 20px;
 }
 
+/* Круг с иконкой */
+
 .feature-icon-wrapper {
   width: 52px;
   height: 52px;
-  background-color: #FDE8E8;
+  min-width: 52px;
+  background-color: #FCE3DF;
   border-radius: 50%;
   display: flex;
   align-items: center;
@@ -41,15 +46,19 @@
   flex-shrink: 0;
 }
 
+/* Сами иконки */
+
 .feature-icon {
   font-size: 20px;
   color: #E22119;
 }
 
+/* Текст преимуществ */
+
 .feature-content {
   display: flex;
   flex-direction: column;
-  gap: 6px;
+  gap: 8px;
 }
 
 .feature-title {
@@ -57,17 +66,20 @@
   font-weight: 700;
   line-height: 1.3;
   color: #111111;
+  margin: 0;
 }
 
 .feature-description {
   font-size: 13px;
   line-height: 1.5;
   color: #777777;
+  margin: 0;
 }
 
-/* ===== Правая часть: серый блок с формой ===== */
+/* ===== Правая часть: форма ===== */
+
 .application-form-card {
-  background: #F8F9FA;
+  background: #F3F6FA;
   border-radius: 20px;
   padding: 32px 36px;
 }
@@ -77,6 +89,8 @@
   flex-direction: column;
   gap: 16px;
 }
+
+/* Две колонки */
 
 .form-row {
   display: grid;
@@ -100,6 +114,7 @@
 .form-group select {
   width: 100%;
   height: 44px;
+  box-sizing: border-box;
   background: #FFFFFF;
   border: 1px solid #EAEAEA;
   border-radius: 10px;
@@ -119,15 +134,18 @@
   border-color: #E22119;
 }
 
-/* Выпадающие списки */
+/* ===== Выпадающие списки ===== */
+
 .select-wrapper {
   position: relative;
+  width: 100%;
 }
 
 .select-wrapper select {
   appearance: none;
   -webkit-appearance: none;
   cursor: pointer;
+  padding-right: 38px;
 }
 
 .select-arrow {
@@ -140,7 +158,8 @@
   pointer-events: none;
 }
 
-/* Соглашение / Чекбокс */
+/* ===== Чекбокс ===== */
+
 .form-checkbox-group {
   display: flex;
   align-items: flex-start;
@@ -154,12 +173,13 @@
   accent-color: #E22119;
   cursor: pointer;
   margin-top: 2px;
+  flex-shrink: 0;
 }
 
 .form-checkbox-group label {
   font-size: 11px;
   color: #777777;
-  line-height: 1.3;
+  line-height: 1.4;
 }
 
 .form-checkbox-group a {
@@ -171,7 +191,8 @@
   text-decoration: underline;
 }
 
-/* Кнопка */
+/* ===== Кнопка ===== */
+
 .btn-submit {
   margin-top: 8px;
   width: 100%;
@@ -183,19 +204,17 @@
   font-size: 14px;
   font-weight: 600;
   cursor: pointer;
-  transition: opacity 0.2s ease;
+  transition: all 0.3s ease;
 }
 
 .btn-submit:hover {
   opacity: 0.92;
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(226, 33, 25, 0.2);
 }
 
+/* ===== Планшеты ===== */
 
-/* ==========================================
-   Адаптивная верстка страницы Application
-   ========================================== */
-
-/* --- Планшеты (до 1024px) --- */
 @media (max-width: 1024px) {
   .application-page {
     padding-top: 40px;
@@ -216,24 +235,27 @@
   .application-form-card {
     padding: 28px 24px;
   }
+
+  .feature-title {
+    font-size: 18px;
+  }
 }
 
-/* --- Планшеты портретно и мобильные (до 768px) --- */
+/* ===== Планшеты и мобильные ===== */
+
 @media (max-width: 768px) {
   .application-page {
     padding-top: 30px;
     padding-bottom: 60px;
   }
 
-  /* Переводим сетку в одну колонку: форма сверху или снизу, преимущества под ней */
   .application-wrapper {
     grid-template-columns: 1fr;
     gap: 40px;
   }
 
-  /* Меняем порядок визуально, чтобы форма шла первой (опционально, по желанию) */
   .application-form-card {
-    order: -1; 
+    order: -1;
   }
 
   .application-features {
@@ -245,7 +267,8 @@
   }
 }
 
-/* --- Маленькие мобильные экраны (до 480px) --- */
+/* ===== Маленькие мобильные ===== */
+
 @media (max-width: 480px) {
   .application-wrapper {
     padding: 0 16px;
@@ -256,7 +279,6 @@
     border-radius: 16px;
   }
 
-  /* Поля формы в один столбец на очень узких экранах */
   .form-row {
     grid-template-columns: 1fr;
     gap: 16px;
@@ -269,6 +291,7 @@
   .feature-icon-wrapper {
     width: 44px;
     height: 44px;
+    min-width: 44px;
   }
 
   .feature-icon {

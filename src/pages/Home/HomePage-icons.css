@@ -1,0 +1,63 @@
+/* Дополнительные стили SVG-иконок для HomePage.
+   Основные стили страницы остаются в HomePage.css. */
+
+/* Иконки в карточках услуг */
+.service-icon-wrap {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 60px;
+  height: 60px;
+  margin-bottom: 20px;
+  background: #F3E3DF;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+.service-icon {
+  width: 30px;
+  height: 30px;
+  color: var(--orange, #E64A19);
+  stroke: currentColor;
+}
+
+/* На активной карточке круг белый, иконка остаётся оранжевой */
+.service-card.active .service-icon-wrap {
+  background: #FFFFFF;
+}
+
+.service-card.active .service-icon {
+  color: var(--orange, #E64A19);
+}
+
+/* Стрелки с SVG */
+.news-arrow-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  width: 50px;
+  height: 50px;
+  color: var(--orange, #E64A19);
+  background: var(--pink, #FDEBE8);
+  border-radius: 50%;
+  transition: transform .2s ease, background .2s ease;
+}
+
+.news-arrow-btn svg {
+  width: 22px;
+  height: 22px;
+  stroke: currentColor;
+}
+
+.news-main-card:hover .news-arrow-btn,
+.news-item:hover .news-arrow-btn {
+  transform: scale(1.05);
+  background: #FBD5CE;
+}
+
+/* Стрелки в кнопках */
+.btn-secondary svg,
+.btn-news-more svg {
+  flex-shrink: 0;
+}

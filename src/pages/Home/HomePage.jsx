@@ -1,5 +1,14 @@
 import React, { useState } from 'react';
 import './HomePage.css';
+import './HomePage-icons.css';
+
+import {
+  KeyRound,
+  Search,
+  Wallet,
+  ShieldCheck,
+  ArrowRight,
+} from 'lucide-react';
 
 // Partners
 import image1899png from '../../assets/images/image 1899.png';
@@ -10,10 +19,6 @@ import image1897png from '../../assets/images/image 1897.png';
 
 // Main images
 import bannerImage from '../../assets/images/banner2.png';
-import groupImage from '../../assets/images/Group 1.png';
-import recoveryImage from '../../assets/images/ChatGPT Image 29 сент. 2026 г., 21_53_44.png';
-import walletImage from '../../assets/images/ChatGPT Image 29 сент. 2026 г., 21_55_57.png';
-// import shieldImage from '../../assets/images/service-shield.png';
 import componentImage from '../../assets/images/Component 4.png';
 
 // News images
@@ -33,23 +38,23 @@ const partners = [
 
 const services = [
   {
-    image: groupImage,
+    icon: KeyRound,
     title: 'Ваш пароль не работает',
     text: 'Вы думали, что знаете свой пароль, но он не разблокирует кошелёк. Возможно, в нём другие цифры или другая заглавная буква, чем вы помните.',
     active: true,
   },
   {
-    image: recoveryImage,
+    icon: Search,
     title: 'Частичное восстановление исходной фразы',
     text: 'Вы записали список слов, а парольная фраза — некая комбинация этих слов.',
   },
   {
-    image: walletImage,
+    icon: Wallet,
     title: 'Потеряли доступ к кошельку крупной сети',
     text: 'Вы потеряли доступ к криптоактиву: Bitcoin, Ethereum, Litecoin, Dogecoin, NFT или другим альткоинам.',
   },
   {
-    // image: shieldImage,
+    icon: ShieldCheck,
     title: 'Вас обманули мошенники',
     text: 'Мы предлагаем услуги по розыску для тех, кто хочет раскрыть реальную личность мошенника.',
   },
@@ -124,7 +129,7 @@ function HomePage() {
               </a>
 
               <a href="#services" className="btn-secondary">
-                Подробнее <span aria-hidden="true">→</span>
+                Подробнее <ArrowRight size={18} aria-hidden="true" />
               </a>
             </div>
           </div>
@@ -203,26 +208,28 @@ function HomePage() {
           <h2 className="section-title">Мы поможем вам, если</h2>
 
           <div className="services-grid">
-            {services.map((service) => (
-              <div
-                className={`service-card${service.active ? ' active' : ''}`}
-                key={service.title}
-              >
-                <div className="service-icon-wrap">
-                  {service.image && (
-                    <img
-                      src={service.image}
-                      alt=""
-                      className="service-icon"
-                      loading="lazy"
-                    />
-                  )}
-                </div>
+            {services.map((service) => {
+              const ServiceIcon = service.icon;
 
-                <h3 className="service-card-title">{service.title}</h3>
-                <p className="service-card-text">{service.text}</p>
-              </div>
-            ))}
+              return (
+                <div
+                  className={`service-card${service.active ? ' active' : ''}`}
+                  key={service.title}
+                >
+                  <div className="service-icon-wrap">
+                    <ServiceIcon
+                      className="service-icon"
+                      size={30}
+                      strokeWidth={1.8}
+                      aria-hidden="true"
+                    />
+                  </div>
+
+                  <h3 className="service-card-title">{service.title}</h3>
+                  <p className="service-card-text">{service.text}</p>
+                </div>
+              );
+            })}
           </div>
         </div>
       </section>
@@ -289,7 +296,9 @@ function HomePage() {
                 <time className="news-date" dateTime="2024-06-11T12:30">
                   11.06.2024 12:30
                 </time>
-                <span className="news-arrow-btn" aria-hidden="true">→</span>
+                <span className="news-arrow-btn" aria-hidden="true">
+                  <ArrowRight size={22} />
+                </span>
               </div>
             </a>
 
@@ -310,14 +319,16 @@ function HomePage() {
                     </time>
                   </div>
 
-                  <span className="news-arrow-btn" aria-hidden="true">→</span>
+                  <span className="news-arrow-btn" aria-hidden="true">
+                    <ArrowRight size={22} />
+                  </span>
                 </a>
               ))}
             </div>
           </div>
 
           <a href="/news" className="btn-news-more">
-            Подробнее <span aria-hidden="true">→</span>
+            Подробнее <ArrowRight size={18} aria-hidden="true" />
           </a>
         </div>
       </section>

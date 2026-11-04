@@ -1,22 +1,23 @@
+
 import React from "react";
 import "./Footer.css";
-import logo from "../../assets/images/logo.png"
-import CombinedShapepng from "../../assets/images/Combined-Shape.png"
-import path13png from "../../assets/images/path13.png"
-import png from "../../assets/images/220900.png"
-// import iconttpng "../../assets/images/iconttpng"
+import logo from "../../assets/images/logo.png";
+
+import {
+  FaWhatsapp,
+  FaTelegramPlane,
+  FaInstagram,
+  FaTiktok,
+} from "react-icons/fa";
 
 const Footer = () => {
   return (
     <footer className="footer">
       <div className="container footer-top">
+
         <div className="footer-col col-main">
           <a href="/" className="footer-logo">
-            <img
-              src={logo}
-              alt="Navis Asset"
-              className="logo-img"
-            />
+            <img src={logo} alt="Navis Asset" className="logo-img" />
           </a>
 
           <p className="footer-description">
@@ -24,10 +25,7 @@ const Footer = () => {
             восстановят забытый криптокошелёк
           </p>
 
-          <a
-            href="mailto:navisasset@mail.com"
-            className="footer-email"
-          >
+          <a href="mailto:navisasset@mail.com" className="footer-email">
             NAVISASSET@MAIL.COM
           </a>
         </div>
@@ -56,39 +54,24 @@ const Footer = () => {
           <h4 className="footer-title">Мы в соцсетях</h4>
 
           <div className="social-links">
-            <button
-              href="/"
-              className="social-icon-link"
-              aria-label="WhatsApp"
-            >
-              <img src={CombinedShapepng} alt="" />
-            </button>
+            <a href="#" className="social-icon-link" aria-label="WhatsApp">
+              <FaWhatsapp />
+            </a>
 
-            <button
-              href="/"
-              className="social-icon-link"
-              aria-label="Telegram"
-            >
-              <img src={path13png} alt="" />
-            </button>
+            <a href="#" className="social-icon-link" aria-label="Telegram">
+              <FaTelegramPlane />
+            </a>
 
-            <button
-              href="/"
-              className="social-icon-link"
-              aria-label="Instagram"
-            >
-              <img src={png}alt="" />
-            </button>
+            <a href="#" className="social-icon-link" aria-label="Instagram">
+              <FaInstagram />
+            </a>
 
-            <button
-              href="/"
-              className="social-icon-link"
-              aria-label="TikTok"
-            >
-              {/* <img src={iconttpng} alt="" /> */}
-            </button>
+            <a href="#" className="social-icon-link" aria-label="TikTok">
+              <FaTiktok />
+            </a>
           </div>
         </div>
+
       </div>
 
       <div className="footer-bottom">
@@ -97,9 +80,7 @@ const Footer = () => {
 
           <p className="credits">
             Made with <span className="heart">♥</span> by{" "}
-            <a href="/" className="dev-link">
-              NavisDevs
-            </a>
+            <a href="/" className="dev-link">NavisDevs</a>
           </p>
         </div>
       </div>

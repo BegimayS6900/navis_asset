@@ -1,3 +1,4 @@
+
 import React from "react";
 import { Link } from "react-router-dom";
 import "./NewsPage.css";
@@ -24,7 +25,20 @@ const NewsCard = ({ news, main = false }) => {
           <span className="news-date">{news.date}</span>
 
           <span className="arrow-btn">
-            <i className="fa-solid fa-arrow-up-right-from-square"></i>
+            <svg
+              width="18"
+              height="18"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth="2"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              aria-hidden="true"
+            >
+              <path d="M7 17 17 7" />
+              <path d="M7 7h10v10" />
+            </svg>
           </span>
         </div>
       </div>
@@ -41,9 +55,8 @@ const NewsPage = () => {
     <main className="news-page">
       <div className="container">
         <div className="news-grid-layout">
-
           <div className="news-left-col">
-            <NewsCard news={mainNews} main />
+            {mainNews && <NewsCard news={mainNews} main />}
 
             <div className="news-subrow">
               {leftNews.map((news) => (
@@ -57,7 +70,6 @@ const NewsPage = () => {
               <NewsCard key={news.id} news={news} />
             ))}
           </div>
-
         </div>
       </div>
     </main>

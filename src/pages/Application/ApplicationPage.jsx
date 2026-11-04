@@ -1,17 +1,24 @@
 
-import React, { useState } from 'react';
-import './ApplicationPage.css';
+import React, { useState } from "react";
+import "./ApplicationPage.css";
+
+import {
+  FaWallet,
+  FaShieldAlt,
+  FaCheck,
+  FaChevronDown,
+} from "react-icons/fa";
 
 const ApplicationPage = () => {
   const [formData, setFormData] = useState({
-    firstName: '',
-    lastName: '',
-    country: '',
-    email: '',
-    phone: '',
-    recoveryType: '',
-    walletType: '',
-    walletVolume: '',
+    firstName: "",
+    lastName: "",
+    country: "",
+    email: "",
+    phone: "",
+    recoveryType: "",
+    walletType: "",
+    walletVolume: "",
     agreement: false,
   });
 
@@ -20,31 +27,33 @@ const ApplicationPage = () => {
 
     setFormData((prev) => ({
       ...prev,
-      [name]: type === 'checkbox' ? checked : value,
+      [name]: type === "checkbox" ? checked : value,
     }));
   };
 
   const handleSubmit = (e) => {
     e.preventDefault();
-
-    // Пока форма проверяет данные и показывает подтверждение.
-    // Для реальной отправки необходимо подключить сервер или API.
-    alert('Заявка заполнена! Для отправки подключите сервер.');
+    alert("Заявка заполнена! Для отправки подключите сервер.");
   };
 
   return (
     <main className="application-page">
       <div className="container">
         <div className="application-wrapper">
+
+          {/* Левая часть — преимущества */}
           <div className="application-features">
+
             <div className="feature-item">
               <div className="feature-icon-wrapper">
-                <i className="fa-solid fa-wallet feature-icon"></i>
+                <FaWallet className="feature-icon" />
               </div>
+
               <div className="feature-content">
                 <h3 className="feature-title">
                   Доверенное восстановление кошелька
                 </h3>
+
                 <p className="feature-description">
                   Помогаем разобраться с доступом к цифровым активам
                   с учетом особенностей каждого случая.
@@ -54,12 +63,14 @@ const ApplicationPage = () => {
 
             <div className="feature-item">
               <div className="feature-icon-wrapper">
-                <i className="fa-solid fa-shield-halved feature-icon"></i>
+                <FaShieldAlt className="feature-icon" />
               </div>
+
               <div className="feature-content">
                 <h3 className="feature-title">
                   Безопасность данных
                 </h3>
+
                 <p className="feature-description">
                   Бережно относитесь к своим данным и не передавайте
                   посторонним Seed-фразу или закрытые ключи.
@@ -69,25 +80,34 @@ const ApplicationPage = () => {
 
             <div className="feature-item">
               <div className="feature-icon-wrapper">
-                <i className="fa-solid fa-check feature-icon"></i>
+                <FaCheck className="feature-icon" />
               </div>
+
               <div className="feature-content">
                 <h3 className="feature-title">
                   Оставьте заявку
                 </h3>
+
                 <p className="feature-description">
                   Опишите свою ситуацию, чтобы узнать о возможных
                   вариантах восстановления доступа.
                 </p>
               </div>
             </div>
+
           </div>
 
+          {/* Правая часть — форма */}
           <div className="application-form-card">
-            <form className="application-form" onSubmit={handleSubmit}>
+            <form
+              className="application-form"
+              onSubmit={handleSubmit}
+            >
+
               <div className="form-row">
                 <div className="form-group">
                   <label htmlFor="firstName">Имя</label>
+
                   <input
                     type="text"
                     id="firstName"
@@ -102,6 +122,7 @@ const ApplicationPage = () => {
 
                 <div className="form-group">
                   <label htmlFor="lastName">Фамилия</label>
+
                   <input
                     type="text"
                     id="lastName"
@@ -115,8 +136,10 @@ const ApplicationPage = () => {
                 </div>
               </div>
 
+              {/* Страна */}
               <div className="form-group">
                 <label htmlFor="country">Страна</label>
+
                 <div className="select-wrapper">
                   <select
                     id="country"
@@ -128,17 +151,21 @@ const ApplicationPage = () => {
                     <option value="" disabled>
                       Выберите страну
                     </option>
+
                     <option value="kg">Кыргызстан</option>
                     <option value="ru">Россия</option>
                     <option value="kz">Казахстан</option>
                   </select>
-                  <i className="fa-solid fa-chevron-down select-arrow"></i>
+
+                  <FaChevronDown className="select-arrow" />
                 </div>
               </div>
 
+              {/* Почта и телефон */}
               <div className="form-row">
                 <div className="form-group">
                   <label htmlFor="email">Почта</label>
+
                   <input
                     type="email"
                     id="email"
@@ -153,6 +180,7 @@ const ApplicationPage = () => {
 
                 <div className="form-group">
                   <label htmlFor="phone">Номер телефона</label>
+
                   <input
                     type="tel"
                     id="phone"
@@ -166,8 +194,12 @@ const ApplicationPage = () => {
                 </div>
               </div>
 
+              {/* Тип восстановления */}
               <div className="form-group">
-                <label htmlFor="recoveryType">Тип восстановления</label>
+                <label htmlFor="recoveryType">
+                  Тип восстановления
+                </label>
+
                 <div className="select-wrapper">
                   <select
                     id="recoveryType"
@@ -179,16 +211,27 @@ const ApplicationPage = () => {
                     <option value="" disabled>
                       Выберите тип восстановления
                     </option>
-                    <option value="pass">Восстановление пароля</option>
-                    <option value="seed">Восстановление Seed-фразы</option>
+
+                    <option value="pass">
+                      Восстановление пароля
+                    </option>
+
+                    <option value="seed">
+                      Консультация по восстановлению доступа
+                    </option>
                   </select>
-                  <i className="fa-solid fa-chevron-down select-arrow"></i>
+
+                  <FaChevronDown className="select-arrow" />
                 </div>
               </div>
 
+              {/* Вид и объем кошелька */}
               <div className="form-row">
                 <div className="form-group">
-                  <label htmlFor="walletType">Вид кошелька</label>
+                  <label htmlFor="walletType">
+                    Вид кошелька
+                  </label>
+
                   <div className="select-wrapper">
                     <select
                       id="walletType"
@@ -200,17 +243,22 @@ const ApplicationPage = () => {
                       <option value="" disabled>
                         Выберите тип
                       </option>
+
                       <option value="metamask">MetaMask</option>
                       <option value="trust">Trust Wallet</option>
                       <option value="ledger">Ledger</option>
                       <option value="other">Другой</option>
                     </select>
-                    <i className="fa-solid fa-chevron-down select-arrow"></i>
+
+                    <FaChevronDown className="select-arrow" />
                   </div>
                 </div>
 
                 <div className="form-group">
-                  <label htmlFor="walletVolume">Объем кошелька</label>
+                  <label htmlFor="walletVolume">
+                    Объем кошелька
+                  </label>
+
                   <input
                     type="text"
                     id="walletVolume"
@@ -222,6 +270,7 @@ const ApplicationPage = () => {
                 </div>
               </div>
 
+              {/* Пользовательское соглашение */}
               <div className="form-checkbox-group">
                 <input
                   type="checkbox"
@@ -231,17 +280,23 @@ const ApplicationPage = () => {
                   onChange={handleChange}
                   required
                 />
+
                 <label htmlFor="agreement">
-                  Нажимая на кнопку «Отправить заявку», я принимаю условия{' '}
-                  <a href="/agreement">Пользовательского соглашения</a>
+                  Нажимая на кнопку «Отправить заявку», я принимаю
+                  условия{" "}
+                  <a href="/agreement">
+                    Пользовательского соглашения
+                  </a>
                 </label>
               </div>
 
               <button type="submit" className="btn-submit">
                 Отправить заявку
               </button>
+
             </form>
           </div>
+
         </div>
       </div>
     </main>

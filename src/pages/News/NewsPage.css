@@ -8,6 +8,7 @@
 }
 
 /* Общая двухколоночная сетка */
+
 .news-grid-layout,
 .news-detail-layout {
   display: grid;
@@ -71,7 +72,7 @@
   color: #A0A0A0;
 }
 
-/* ===== Стрелка 45 градусов ===== */
+/* ===== SVG-иконка стрелки ===== */
 
 .arrow-btn {
   width: 32px;
@@ -82,14 +83,15 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 13px;
   flex-shrink: 0;
   transition: all 0.3s ease;
 }
 
-.arrow-btn i {
-  display: inline-block;
-  transform: rotate(0deg);
+.arrow-btn svg {
+  width: 18px;
+  height: 18px;
+  display: block;
+  stroke: currentColor;
   transition: transform 0.3s ease;
 }
 
@@ -98,7 +100,7 @@
   color: #FFFFFF;
 }
 
-.news-card:hover .arrow-btn i {
+.news-card:hover .arrow-btn svg {
   transform: translate(2px, -2px);
 }
 
